@@ -55,8 +55,8 @@ class StepsComponent extends Component {
 
         const a = await contract.methods
             .getRegistrationStatus(
-                "0x9cc53532815ccde2d97f09571bebd4a87a100b5e",
-                "0x99ba8eb7acd2b9d4f65f7e36ab026cedb57fb979"
+                "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
+                "0x5446640647e082be1c7003A467C09dc8eA5A0532"
             )
             .call();
         // console.log("Value of a is : ", a);
@@ -113,8 +113,8 @@ class StepsComponent extends Component {
 
         const b = await contract.methods
             .getCertificationStatus(
-                "0x9cc53532815ccde2d97f09571bebd4a87a100b5e",
-                "0x99ba8eb7acd2b9d4f65f7e36ab026cedb57fb979"
+                "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
+                "0x5446640647e082be1c7003A467C09dc8eA5A0532"
             )
             .call();
         console.log("Value of b is : ", b);

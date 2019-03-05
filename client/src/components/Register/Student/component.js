@@ -35,9 +35,11 @@ class student extends Component {
       phone: null,
       emailID: null,
       pwd: null,
-      username: null
+      username: null,
+
     };
     this.addTransaction = this.props.addTransaction.bind(this);
+
   }
 
   componentDidMount = async () => {
@@ -90,7 +92,7 @@ class student extends Component {
               let privKey = walletRead.getPrivateKeyString();
               console.log(walletRead.getPrivateKeyString());
               const { web3, accounts, contract } = this.state;
-              let value = web3.utils.toWei('0.5', 'ether');
+              let value = web3.utils.toWei('80', 'ether');
               web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[0], value: value })
               Transaction.doInteractionWithSC(privKey, response.data.data.wallet.address, `createStudent('${sname}','${phone}','${emailID}')`)
             }

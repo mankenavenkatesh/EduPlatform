@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import ipfs from "./ipfs";
 import getWeb3 from "../../../utils/getWeb3";
 import RegistrationAndCertificateContractFactory from "../../../contracts/RegistrationAndCertificateContractFactory.json";
+
+const Wallet = require('ethereumjs-wallet');
+const Transaction = require('../../../utils/sendTxContract');
+
 class Upload extends Component {
     constructor(props) {
         super(props);
@@ -57,7 +61,19 @@ class Upload extends Component {
 
     issueCertificate = event => {
         event.preventDefault();
-        const { accounts, contract } = this.state;
+        var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
+        let wallet = JSON.parse(localStorage.getItem('wallet'));
+        let password = localStorage.getItem('password');
+        let walletRead = Wallet.fromV3(wallet, password)
+        let privKey = walletRead.getPrivateKeyString();
+        console.log(walletRead.getPrivateKeyString());
+        const { web3, accounts, contract } = this.state;
+        Transaction.doInteractionWithSC(privKey, wallet.address,
+            `issueCertification('${stdAddress}')`);
+
+
+
+        /*const { accounts, contract } = this.state;
 
         contract.methods
             .issueCertification(accounts[0])
@@ -68,7 +84,7 @@ class Upload extends Component {
             })
             .catch(function (e) {
                 console.log(e);
-            });
+            }); */
     };
 
     onSubmit(event) {

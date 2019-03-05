@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import Uppernav from "../UpperNav/component";
 import Carousel from "../Carousel/component";
@@ -15,16 +16,27 @@ class conveyance extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleStatus: true /* Property In Process Hide/Show flag */
+      toggleStatus: true, /* Property In Process Hide/Show flag */
     };
   }
+
+  logout() {
+    localStorage.clear();
+    console.log("Cleared Storage");
+    // this.setState({ redirect: true });
+  }
   render() {
+
     var taraTimeline1 = "Registration";
     var taraTimeline2 = "Certification";
     var taraTimeline3 = "Acceptance";
     var buckets = {
       timeLine: ["Registration", "Certification", "Acceptance"]
     };
+
+    //if (this.state.redirect) {
+    //  return (<Redirect to="/student" />);
+    // }
     return (
       <div>
         <Uppernav />
@@ -34,6 +46,8 @@ class conveyance extends Component {
         <div className="container">
           <Profile />
           <StartCert />
+          <br></br>
+          <button onClick={this.logout}> Logout </button>
           <br />
           <br />
           <div className="flow">

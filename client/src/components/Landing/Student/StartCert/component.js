@@ -3,6 +3,10 @@ import getWeb3 from "../../../../utils/getWeb3";
 import "./contractInteraction";
 import ipfs from "../../../ProcessStages/Upload/ipfs";
 import RegistrationAndCertificateContractFactory from "../../../../contracts/RegistrationAndCertificateContractFactory.json";
+
+const Wallet = require('ethereumjs-wallet');
+const Transaction = require('../../../../utils/sendTxContract');
+
 class StartCert extends Component {
   constructor(props) {
     super(props);
@@ -46,63 +50,117 @@ class StartCert extends Component {
 
   acceptRegsitration = event => {
     event.preventDefault();
-    const { accounts, contract } = this.state;
+    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
 
-    contract.methods
-      .acceptRegistration(accounts[1])
-      .send({ from: accounts[0], gas: 330000 })
-      .then(function (result) {
-        console.log(result);
-        window.confirm("You have successfully accepted your Registration by the College");
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    Transaction.doInteractionWithSC(privKey, wallet.address,
+      `acceptRegistration('${clgAddress}')`);
+
+
+    /* const { accounts, contract } = this.state;
+ 
+     contract.methods
+       .acceptRegistration(accounts[1])
+       .send({ from: accounts[0], gas: 330000 })
+       .then(function (result) {
+         console.log(result);
+         window.confirm("You have successfully accepted your Registration by the College");
+       })
+       .catch(function (e) {
+         console.log(e);
+       }); */
   };
 
   startCertification = event => {
     event.preventDefault();
-    const { accounts, contract } = this.state;
-    contract.methods
-      .startCertification(accounts[1])
-      .send({ from: accounts[0], gas: 1330000 })
-      .then(function (result) {
-        console.log(result);
-        window.confirm("You request for Certificate has been initiated");
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
+
+    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
+
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    Transaction.doInteractionWithSC(privKey, wallet.address,
+      `startCertification('${clgAddress}')`)
+
+    window.confirm("Your request for Certificate has been initiated");
+
+
+
+    /* const { accounts, contract } = this.state;
+     contract.methods
+       .startCertification(accounts[1])
+       .send({ from: accounts[0], gas: 1330000 })
+       .then(function (result) {
+         console.log(result);
+         window.confirm("Your request for Certificate has been initiated");
+       })
+       .catch(function (e) {
+         console.log(e);
+       }); */
   };
 
   requestCertification = event => {
     event.preventDefault();
-    const { accounts, contract } = this.state;
-    contract.methods
-      .reqCertification(accounts[1])
-      .send({ from: accounts[0], gas: 330000 })
-      .then(function (result) {
-        console.log(result);
-        window.confirm("You have successfully requested the College for Certification");
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
+
+    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
+
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    Transaction.doInteractionWithSC(privKey, wallet.address,
+      `reqCertification('${clgAddress}')`);
+    window.confirm("You have successfully requested the College for Certification");
+
+    /* const { accounts, contract } = this.state;
+     contract.methods
+       .reqCertification(accounts[1])
+       .send({ from: accounts[0], gas: 330000 })
+       .then(function (result) {
+         console.log(result);
+         window.confirm("You have successfully requested the College for Certification");
+       })
+       .catch(function (e) {
+         console.log(e);
+       }); */
   };
 
   acceptCertification = event => {
     event.preventDefault();
-    const { accounts, contract } = this.state;
-    contract.methods
-      .acceptCertification(accounts[1])
-      .send({ from: accounts[0], gas: 330000 })
-      .then(function (result) {
-        console.log(result);
-        window.confirm("You have successfully accepted the Certificate given by the College");
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
+
+    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
+
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    Transaction.doInteractionWithSC(privKey, wallet.address,
+      `acceptCertification('${clgAddress}')`);
+    window.confirm("You have successfully accepted the Certificate given by the College");
+
+    /* const { accounts, contract } = this.state;
+     contract.methods
+       .acceptCertification(accounts[1])
+       .send({ from: accounts[0], gas: 330000 })
+       .then(function (result) {
+         console.log(result);
+         window.confirm("You have successfully accepted the Certificate given by the College");
+       })
+       .catch(function (e) {
+         console.log(e);
+       }); */
   };
 
   render() {

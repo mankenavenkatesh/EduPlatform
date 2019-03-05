@@ -4,6 +4,10 @@ import profile from "./profile.png";
 import RegFactoryContract from "../../../../contracts/RegistrationAndCertificateContractFactory.json";
 import getWeb3 from "../../../../utils/getWeb3";
 
+const Wallet = require('ethereumjs-wallet');
+const Transaction = require('../../../../utils/sendTxContract');
+
+
 class studSideNav extends Component {
   constructor(props) {
     super(props);
@@ -54,35 +58,35 @@ class studSideNav extends Component {
   runExample = async () => {
     const { accounts, contract, astate } = this.state;
 
-    const a = await contract.methods
-      .getStudentData()
-      .call();
-    this.setState({ studentName: a[0] });
-    console.log("Status is ", this.state.astate);
+    //const a = await contract.methods
+    //  .getStudentData()
+    //  .call();
+    //this.setState({ studentName: a[0] });
+    //console.log("Status is ", this.state.astate);
 
   };
 
   handleSubmit = event => {
     // var clgAddress = this.state.clgAddress;
-    var clgAddress = "0x99ba8eb7acd2b9d4f65f7e36ab026cedb57fb979";
+    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
     var clgRegNum = this.state.clgRegNum;
     var clgEmailID = this.state.clgEmailID;
     var clgYOJ = this.state.clgYOJ;
     var clgYOP = this.state.clgYOP;
 
     event.preventDefault();
-    const { accounts, contract } = this.state;
-    contract.methods
-      .startRegistration(clgAddress, clgRegNum, clgEmailID, clgYOJ, clgYOP)
-      .send({ from: accounts[0], gas: 1330000 })
-      .then(function (result) {
-        console.log(result);
-        window.confirm("You have successfully initiated a Registration request to the College");
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    Transaction.doInteractionWithSC(privKey, wallet.address,
+      `startRegistration('${clgAddress}','${clgRegNum}','${clgEmailID}','${clgYOJ}','${clgYOP}')`);
 
+
+
+    console.log(wallet.address);
     var asd = this.state.clgAddress;
     // var sname = document.getElementById("sname").value;
     console.log("Value of sname is ", asd);
@@ -110,7 +114,7 @@ class studSideNav extends Component {
                 <img src={profile} alt="Chicago" />
               </div>
               <div className="profile-usertitle">
-                <div className="profile-usertitle-name">{this.state.studentName}</div>
+                <div className="profile-usertitle-name">Mani</div>
                 <div className="profile-usertitle-job">India</div>
               </div>
 
@@ -160,6 +164,17 @@ class studSideNav extends Component {
                       placeholder="Enter College Name"
                       onChange={this.handleInputChange}
                     />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label className="control-label col-sm-2">Select a College</label>
+                  <div className="col-sm-2">
+                    <select id="sel1">
+                      <option>Abcd Institute of Technology</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
                   </div>
                 </div>
                 <div className="form-group">

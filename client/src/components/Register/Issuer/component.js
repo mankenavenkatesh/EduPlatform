@@ -3,10 +3,16 @@ import Uppernav from "../../UpperNav/component";
 import Carousel from "../../Carousel/component";
 import RegFactoryContract from "../../../contracts/RegistrationAndCertificateContractFactory.json";
 import getWeb3 from "../../../utils/getWeb3";
+import axios from 'axios';
+
+
 import "./issuer.css";
 import { addTransaction } from '../../../actions/actionCreator'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+
+const Wallet = require('ethereumjs-wallet');
+const Transaction = require('../../../utils/sendTxContract');
 
 class issuer extends Component {
   /* ################ Smart Contract Interaction begins ############# */
@@ -22,7 +28,11 @@ class issuer extends Component {
 
       instituteName: null,
       instituteCode: null,
-      instituteAISHECode: null
+      instituteAISHECode: null,
+
+      pwd: null,
+      username: null,
+
     };
     this.addTransaction = this.props.addTransaction.bind(this);
   }
@@ -59,26 +69,53 @@ class issuer extends Component {
     var instituteName = this.state.instituteName;
     var instituteCode = this.state.instituteCode;
     var instituteAISHECode = this.state.instituteAISHECode;
+    let password = this.state.pwd;
+    let username = this.state.username;
     event.preventDefault();
-    const { accounts, contract } = this.state;
-    contract.methods
-      .createCollege(instituteName, instituteCode, instituteAISHECode)
-      .send({ from: accounts[1], gas: 330000 })
-      .then(function (result) {
-        console.log(result);
-        window.confirm("You have successfully Registered as Educational Institute");
-        var blockData = {
-          transactionHash: result.transactionHash,
-          blocknumber: result.blockNumber,
-          details: "State - College Created"
-        };
-        this.props.addTransaction(blockData)
-      }.bind(this))
-      .catch(function (e) {
-      })
-      .catch(function (e) {
-        console.log(e);
-      });
+
+    if (username && password) {
+      console.log('Registering User....');
+
+      axios.post('http://localhost:5000/register', { "username": username, "password": password })
+        .then((response) => {
+          if (response.data.message) {
+            console.log(response.data.message);
+            if (response.data.message != `Username ${username} already exsists.`) {
+              console.log(response.data.data.wallet);
+              let walletRead = Wallet.fromV3(response.data.data.wallet, response.data.data.password)
+              let privKey = walletRead.getPrivateKeyString();
+              console.log(walletRead.getPrivateKeyString());
+              const { web3, accounts, contract } = this.state;
+              let value = web3.utils.toWei('80', 'ether');
+              web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[1], value: value })
+              Transaction.doInteractionWithSC(privKey, response.data.data.wallet.address, `createCollege('${instituteName}','${instituteCode}','${instituteAISHECode}')`)
+            }
+          }
+        })
+    } else {
+      console.log('Please Enter Username and Password');
+    }
+
+
+    /* const { accounts, contract } = this.state;
+     contract.methods
+       .createCollege(instituteName, instituteCode, instituteAISHECode)
+       .send({ from: accounts[1], gas: 330000 })
+       .then(function (result) {
+         console.log(result);
+         window.confirm("You have successfully Registered as Educational Institute");
+         var blockData = {
+           transactionHash: result.transactionHash,
+           blocknumber: result.blockNumber,
+           details: "State - College Created"
+         };
+         this.props.addTransaction(blockData)
+       }.bind(this))
+       .catch(function (e) {
+       })
+       .catch(function (e) {
+         console.log(e);
+       });  */
 
 
   };
@@ -241,11 +278,44 @@ class issuer extends Component {
                     className="form-control"
                     id="name"
                     placeholder="Enter Company Name"
+
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label className="control-label col-sm-2">
+                  User Name
+                </label>
+                <div className="col-sm-10">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="username"
+                    name="username"
+                    placeholder="Enter username"
+                    onChange={this.handleInputChange}
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label className="control-label col-sm-2">
+                  Password
+                </label>
+                <div className="col-sm-10">
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="pwd"
+                    name="pwd"
+                    placeholder="Enter Password"
+                    onChange={this.handleInputChange}
                   />
                 </div>
               </div>
 
               <br />
+
 
               <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">

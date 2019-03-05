@@ -29,24 +29,20 @@ class upperNav extends Component {
 
       axios.post('http://localhost:5000/login', { "username": username, "password": password })
         .then((response) => {
-
-
-
-
-
-          /* if (response.data.message) {
-             console.log(response.data.message);
-             if (response.data.message !== `Username or Password Incorrect` && response.data.message !== `User not Found`) {
-               console.log(response.data.data.wallet);
-               let walletRead = Wallet.fromV3(response.data.data.wallet, response.data.data.password)
-               let privKey = walletRead.getPrivateKeyString();
-               console.log(walletRead.getPrivateKeyString()); * /
-               //const { web3, accounts, contract } = this.state;
-               //let value = web3.utils.toWei('0.5', 'ether');
-               // web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[0], value: value })
-               // Transaction.doInteractionWithSC(privKey, response.data.data.wallet.address, `createStudent('${sname}','${phone}','${emailID}')`)
-             }
-           } */
+          if (response.data.token) {
+            console.log(response.data.token);
+            axios.get('http://localhost:5000/home', { headers: { "Authorization": `Bearer ${response.data.token}` } })
+              .then((response) => {
+                if (response) {
+                  console.log(response.data.wallet);
+                  localStorage.setItem('wallet', JSON.stringify(response.data.wallet));
+                }
+              })
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('password', password);
+          } else {
+            console.log(`Incorrect Username or Password`);
+          }
         })
     } else {
       console.log('Please Enter Username and Password');
@@ -63,6 +59,20 @@ class upperNav extends Component {
       [event.target.name]: event.target.value
     });
   };
+
+  recharge = event => {
+    event.preventDefault();
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    let value = web3.utils.toWei('80', 'ether');
+    web3.eth.sendTransaction({ to: wallet.address, from: accounts[0], value: value })
+
+  }
+
 
   render() {
     return (
@@ -87,7 +97,11 @@ class upperNav extends Component {
               <li>
                 <Link to="/verifier">Verifier Registration</Link>
               </li>
+              <li>
+                <button type="submit" className="btn btn-primary" onClick={this.recharge}> Recharge </button>
+              </li>
             </ul>
+
             <ul className="nav navbar-nav navbar-right">
               <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a>
                 <ul className="dropdown-menu">

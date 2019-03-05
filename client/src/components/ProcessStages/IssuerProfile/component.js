@@ -3,6 +3,10 @@ import "./IssuerProfile.css";
 import getWeb3 from "../../../utils/getWeb3";
 import { contractInstance, accounts } from "../../../utils/getContract";
 import RegistrationAndCertificateContractFactory from "../../../contracts/RegistrationAndCertificateContractFactory.json";
+
+const Wallet = require('ethereumjs-wallet');
+const Transaction = require('../../../utils/sendTxContract');
+
 class IssuerProfile extends Component {
   state = {};
   constructor(props) {
@@ -46,10 +50,20 @@ class IssuerProfile extends Component {
 
 
   handleVerify = event => {
-    var stdAddress = "0x9cc53532815ccde2d97f09571bebd4a87a100b5e";
+    var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
 
     event.preventDefault();
-    const { accounts, contract } = this.state;
+
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    Transaction.doInteractionWithSC(privKey, wallet.address,
+      `verifyStudentProfile('${stdAddress}')`);
+
+    /*const { accounts, contract } = this.state;
     contract.methods
       .verifyStudentProfile(stdAddress)
       .send({ from: accounts[1], gas: 1330000 })
@@ -59,14 +73,23 @@ class IssuerProfile extends Component {
       })
       .catch(function (e) {
         console.log(e);
-      });
+      }); */
   };
 
   handleApprove = event => {
-    var stdAddress = "0x9cc53532815ccde2d97f09571bebd4a87a100b5e";
+    var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
 
     event.preventDefault();
-    const { accounts, contract } = this.state;
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    Transaction.doInteractionWithSC(privKey, wallet.address,
+      `approveRegistration('${stdAddress}')`);
+
+    /*const { accounts, contract } = this.state;
     contract.methods
       .approveRegistration(stdAddress)
       .send({ from: accounts[1], gas: 1330000 })
@@ -76,7 +99,7 @@ class IssuerProfile extends Component {
       })
       .catch(function (e) {
         console.log(e);
-      });
+      }); */
   };
 
   handleAccept = event => {
