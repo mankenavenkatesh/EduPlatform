@@ -20,11 +20,7 @@ class conveyance extends Component {
     };
   }
 
-  logout() {
-    localStorage.clear();
-    console.log("Cleared Storage");
-    // this.setState({ redirect: true });
-  }
+
   render() {
 
     var taraTimeline1 = "Registration";
@@ -45,9 +41,9 @@ class conveyance extends Component {
         <br />
         <div className="container">
           <Profile />
-          <StartCert />
+
           <br></br>
-          <button onClick={this.logout}> Logout </button>
+
           <br />
           <br />
           <div className="flow">
@@ -81,6 +77,8 @@ class conveyance extends Component {
           <TabBar />
           <br />
           <IssuerProfile />
+          <br />
+          <StartCert />
         </div>
       </div>
     );

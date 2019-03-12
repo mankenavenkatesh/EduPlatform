@@ -70,7 +70,7 @@ class Upload extends Component {
         const { web3, accounts, contract } = this.state;
         Transaction.doInteractionWithSC(privKey, wallet.address,
             `issueCertification('${stdAddress}')`);
-
+        window.confirm("You have successfully uploaded the Certificate");
 
 
         /*const { accounts, contract } = this.state;

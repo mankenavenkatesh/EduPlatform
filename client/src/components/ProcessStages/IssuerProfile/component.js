@@ -62,6 +62,7 @@ class IssuerProfile extends Component {
     const { web3, accounts, contract } = this.state;
     Transaction.doInteractionWithSC(privKey, wallet.address,
       `verifyStudentProfile('${stdAddress}')`);
+    window.confirm("You have successfully verified the Student's Profile");
 
     /*const { accounts, contract } = this.state;
     contract.methods
@@ -88,6 +89,7 @@ class IssuerProfile extends Component {
     const { web3, accounts, contract } = this.state;
     Transaction.doInteractionWithSC(privKey, wallet.address,
       `approveRegistration('${stdAddress}')`);
+    window.confirm("You have successfully approved the Student Registration");
 
     /*const { accounts, contract } = this.state;
     contract.methods

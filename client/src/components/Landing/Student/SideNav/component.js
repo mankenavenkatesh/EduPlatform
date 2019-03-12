@@ -83,7 +83,7 @@ class studSideNav extends Component {
     const { web3, accounts, contract } = this.state;
     Transaction.doInteractionWithSC(privKey, wallet.address,
       `startRegistration('${clgAddress}','${clgRegNum}','${clgEmailID}','${clgYOJ}','${clgYOP}')`);
-
+    window.confirm("You have successfully submitted your Registration Request Form");
 
 
     console.log(wallet.address);

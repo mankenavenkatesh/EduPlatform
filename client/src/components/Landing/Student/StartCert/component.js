@@ -60,7 +60,7 @@ class StartCert extends Component {
     const { web3, accounts, contract } = this.state;
     Transaction.doInteractionWithSC(privKey, wallet.address,
       `acceptRegistration('${clgAddress}')`);
-
+    window.confirm("You have successfully accepted your Registration by the College");
 
     /* const { accounts, contract } = this.state;
  
