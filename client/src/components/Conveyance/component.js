@@ -9,8 +9,9 @@ import StartCert from "../Landing/Student/StartCert/component";
 import TabBar from "../SectionBar/component";
 import Steps from "../Steps/component";
 
-import IssuerProfile from "../ProcessStages/IssuerProfile/component";
+
 import "./conveyance.css";
+import StudentProfile from "../ProcessStages/StudentProfile/component";
 
 class conveyance extends Component {
   constructor(props) {
@@ -76,7 +77,8 @@ class conveyance extends Component {
           <Steps />
           <TabBar />
           <br />
-          <IssuerProfile />
+
+          <StudentProfile />
           <br />
           <StartCert />
         </div>
