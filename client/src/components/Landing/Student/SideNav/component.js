@@ -166,17 +166,7 @@ class studSideNav extends Component {
                     />
                   </div>
                 </div>
-                <div className="form-group">
-                  <label className="control-label col-sm-2">Select a College</label>
-                  <div className="col-sm-2">
-                    <select id="sel1">
-                      <option>Abcd Institute of Technology</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                    </select>
-                  </div>
-                </div>
+
                 <div className="form-group">
                   <label className="control-label col-sm-2">
                     Registration Number

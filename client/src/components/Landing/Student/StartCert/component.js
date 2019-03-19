@@ -184,8 +184,17 @@ class StartCert extends Component {
                 <div className="modal-body">
                   <form className="form-inline">
                     <div className="form-group">
-                      <label>Enter College Name:</label> &nbsp;
-                    <input type="text" className="form-control" />
+
+                      <div className="form-group">
+                        <label>Select a College:</label> &nbsp;
+                      <select className="form-control" id="sel1">
+                          <option>IIIT</option>
+                          <option>NIT</option>
+                          <option>IIM</option>
+                        </select>
+                      </div>
+                      <br>
+                      </br>
                     </div>
 
                   </form>
@@ -210,7 +219,7 @@ class StartCert extends Component {
                     <div className="form-group">
                       <label>Select a College:</label> &nbsp;
                       <select className="form-control" id="sel1">
-                        <option>IIT</option>
+                        <option>IIIT</option>
                         <option>NIT</option>
                         <option>IIM</option>
                       </select>

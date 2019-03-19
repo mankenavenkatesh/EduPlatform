@@ -14,7 +14,9 @@ class upperNav extends Component {
     super(props);
     this.state = {
       username: null,
-      pwd: null
+      pwd: null,
+      token: null,
+      role: null
     };
     // this.addTransaction = this.props.addTransaction.bind(this);
   }
@@ -36,15 +38,19 @@ class upperNav extends Component {
                 if (response) {
                   console.log(response.data.wallet);
                   localStorage.setItem('wallet', JSON.stringify(response.data.wallet));
+                  localStorage.setItem('role', response.data.role);
+
                 }
               })
             this.setState(() => {
               return {
-                token: response.data.token
+                token: response.data.token,
+                role: response.data.role
               }
             })
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('password', password);
+
           } else {
             console.log(`Incorrect Username or Password`);
           }
@@ -72,6 +78,7 @@ class upperNav extends Component {
       }
     })
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
     window.location.pathname = '/home';
   }
 
@@ -79,7 +86,13 @@ class upperNav extends Component {
   render() {
 
     if (this.props.token || this.state.token) {
-      window.location.pathname = '/studentprocess';
+      console.log(this.props.role);
+      if (this.props.role == 'university' || this.state.role == 'university') {
+        window.location.pathname = '/issuerprocess';
+      }
+      else {
+        window.location.pathname = '/studentprocess';
+      }
     }
     let login;
 

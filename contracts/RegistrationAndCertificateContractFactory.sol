@@ -45,6 +45,10 @@ contract RegistrationAndCertificateContractFactory {
     /*function getRegisteredStudentData(address _studentAddress) public view returns(string memory,string memory,uint,uint){
         
     }  */
+
+   /* function regCollegeList() public view returns(College[] memory){
+        return(collegeList);
+    } */
     
     function createStudent( string memory name, uint phoneNumber,  string memory emailId) public doesStudentExist(msg.sender){
         Student memory newStudent = Student(name, phoneNumber,emailId, new address[](0),  new address[](1) );

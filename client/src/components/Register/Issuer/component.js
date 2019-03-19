@@ -76,7 +76,7 @@ class issuer extends Component {
     if (username && password) {
       console.log('Registering User....');
 
-      axios.post('http://localhost:5000/register', { "username": username, "password": password })
+      axios.post('http://localhost:5000/register', { "username": username, "password": password, "role": "university" })
         .then((response) => {
           if (response.data.message) {
             console.log(response.data.message);

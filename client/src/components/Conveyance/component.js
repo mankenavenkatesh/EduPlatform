@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
 import Uppernav from "../UpperNav/component";
 import Carousel from "../Carousel/component";
-import BucketComponent from "./components/Bucket";
 import Profile from "../Landing/Student/component";
 import StartCert from "../Landing/Student/StartCert/component";
 import TabBar from "../SectionBar/component";
@@ -24,6 +21,9 @@ class conveyance extends Component {
 
   render() {
 
+    if (this.props.role == "university") {
+      window.location.pathname = '/issuerprocess';
+    }
     var taraTimeline1 = "Registration";
     var taraTimeline2 = "Certification";
     var taraTimeline3 = "Acceptance";
@@ -87,10 +87,5 @@ class conveyance extends Component {
   }
 }
 
-conveyance.propTypes = {
-  viantResponse: PropTypes.object,
-  goToTasks: PropTypes.func,
-  buyerNationality: PropTypes.string
-};
 
 export default conveyance;

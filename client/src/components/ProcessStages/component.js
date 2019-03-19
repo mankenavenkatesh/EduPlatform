@@ -206,6 +206,11 @@ class ProcessStages extends Component {
   };
 
   render() {
+
+    if (this.props.role == "student") {
+      window.location.pathname = '/studentprocess';
+    }
+
     var stage1 = "Request Registration";
     var stage2 = "Verify Student Profile";
     var stage3 = "Approve Registration";
