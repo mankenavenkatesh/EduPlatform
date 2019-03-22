@@ -46,7 +46,8 @@ app.post('/register', (req, res) => {
                                 username: req.body.username,
                                 password: hash,
                                 wallet: wallet,
-                                role: req.body.role
+                                role: req.body.role,
+                                name: req.body.name
                             }
                             dbo.collection("users").insertOne(user, function (err, res) {
                                 if (err) throw err;
@@ -56,9 +57,11 @@ app.post('/register', (req, res) => {
                                     wallet: wallet,
                                     username: req.body.username,
                                     password: req.body.password,
-                                    role: req.body.role
+                                    role: req.body.role,
+                                    name: req.body.name
                                 }
                             });
+                            console.log(req.body.name);
 
 
                         }
@@ -111,6 +114,20 @@ app.get('/home', verifyToken, (req, res) => {
             //res.send(`Welcome ${authData.user.username } <br> Wallet: ${JSON.stringify(authData.user.wallet)}`);
         }
     })
+})
+
+app.get('/getAllCollege', (req, res) => {
+    MongoClient.connect(dbUrl, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("sarup");
+        dbo.collection("users").find({ role: "university" }).toArray(function (err, result) {
+            let uniAddress = result.map(uni => {
+                return { name: uni.name, address: uni.wallet.address }
+            });
+            res.send(uniAddress);
+            db.close();
+        });
+    });
 })
 
 

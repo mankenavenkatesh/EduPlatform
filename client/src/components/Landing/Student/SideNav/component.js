@@ -3,6 +3,8 @@ import "./style.css";
 import profile from "./profile.png";
 import RegFactoryContract from "../../../../contracts/RegistrationAndCertificateContractFactory.json";
 import getWeb3 from "../../../../utils/getWeb3";
+import axios from 'axios';
+
 
 const Wallet = require('ethereumjs-wallet');
 const Transaction = require('../../../../utils/sendTxContract');
@@ -17,12 +19,15 @@ class studSideNav extends Component {
       contract: null,
       instance: null,
 
+
+      userAddress: null,
       studentName: null,
       clgAddress: null,
       clgRegNum: null,
       clgEmailID: null,
       clgYOJ: null,
-      clgYOP: null
+      clgYOP: null,
+      CollegeList: []
     };
   }
 
@@ -53,6 +58,21 @@ class studSideNav extends Component {
       console.error(error);
     }
 
+
+    axios.get('http://localhost:5000/getAllCollege')
+      .then((response) => {
+        if (response.data) {
+          var len = response.data.length;
+          this.setState({ CollegeList: response.data });
+          console.log(response.data);
+          console.log(response.data[5].name);
+          console.log(len);
+        }
+        else {
+          console.log("No Data");
+        }
+      })
+
   };
 
   runExample = async () => {
@@ -68,6 +88,9 @@ class studSideNav extends Component {
 
   handleSubmit = event => {
     // var clgAddress = this.state.clgAddress;
+    // var patt = /\(([^)]+)\)/;
+    // var clgVal = patt.match(clgAddress);
+    console.log(clgAddress);
     var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
     var clgRegNum = this.state.clgRegNum;
     var clgEmailID = this.state.clgEmailID;
@@ -85,12 +108,13 @@ class studSideNav extends Component {
       `startRegistration('${clgAddress}','${clgRegNum}','${clgEmailID}','${clgYOJ}','${clgYOP}')`);
     window.confirm("You have successfully submitted your Registration Request Form");
 
+    this.setState({ walletAddress: wallet.address });
+
 
     console.log(wallet.address);
     var asd = this.state.clgAddress;
     // var sname = document.getElementById("sname").value;
     console.log("Value of sname is ", asd);
-
   };
 
   handleInputChange = event => {
@@ -102,6 +126,12 @@ class studSideNav extends Component {
       [event.target.name]: event.target.value
       //  sname: event.target.value
     });
+
+
+    /*  var clgAdd = this.state.clgAddress;
+      var patt = /\(([^)]+)\)/;
+      var clgVal = patt.exec(clgAdd);
+      console.log(clgVal, "Colge Address"); */
   };
 
   render() {
@@ -159,11 +189,25 @@ class studSideNav extends Component {
                     <input
                       type="text"
                       className="form-control"
-                      id="clgAddress"
-                      name="clgAddress"
+                      id="clgAddress1"
+                      name="clgAddress1"
                       placeholder="Enter College Name"
                       onChange={this.handleInputChange}
                     />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label className="control-label col-sm-2">
+                    Colleges List
+                  </label>
+                  <div className="col-sm-10">
+                    <select className="form-control" onChange={this.handleInputChange} id="clgAddress" name="clgAddress">
+                      {this.state.CollegeList.map((collegeDetail, index) => {
+                        return (<option key={index} value={collegeDetail.address}>
+                          {collegeDetail.name} ({collegeDetail.address})
+                        </option>)
+                      })}
+                    </select>
                   </div>
                 </div>
 

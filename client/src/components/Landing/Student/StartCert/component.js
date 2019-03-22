@@ -150,18 +150,44 @@ class StartCert extends Component {
       `acceptCertification('${clgAddress}')`);
     window.confirm("You have successfully accepted the Certificate given by the College");
 
-    /* const { accounts, contract } = this.state;
-     contract.methods
-       .acceptCertification(accounts[1])
-       .send({ from: accounts[0], gas: 330000 })
-       .then(function (result) {
-         console.log(result);
-         window.confirm("You have successfully accepted the Certificate given by the College");
-       })
-       .catch(function (e) {
-         console.log(e);
-       }); */
+
+    /*  const a = await contract.methods
+        .getHash(
+          "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6")
+        .call();
+      // console.log("Value of a is : ", a);
+      this.setState({ ipfsHash: a });
+      console.log("Status is ", this.state.ipfsHash);
+  
+      /* const { accounts, contract } = this.state;
+       contract.methods
+         .acceptCertification(accounts[1])
+         .send({ from: accounts[0], gas: 330000 })
+         .then(function (result) {
+           console.log(result);
+           window.confirm("You have successfully accepted the Certificate given by the College");
+         })
+         .catch(function (e) {
+           console.log(e);
+         }); */
   };
+
+  getCertHash = event => {
+    event.preventDefault();
+    const { accounts, contract } = this.state;
+    const a = contract.methods
+      .getHash(
+        "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
+        "0x5446640647e082be1c7003A467C09dc8eA5A0532"
+      )
+      .call().then((response) => {
+        console.log(response);
+        this.setState({ ipfsHash: response });
+      })
+    // console.log("Value of a is : ", a);
+
+    console.log("Status is ", this.state.ipfsHash);
+  }
 
   render() {
     return (
@@ -271,13 +297,13 @@ class StartCert extends Component {
                     <div className="form-group">
                       <div className="col-sm">
                         <button
-                          type="submit"
                           className="btn btn-primary"
-                          onClick={this.handleView}
+                          onClick={this.getCertHash}
                         >
                           View Certificate
                             </button>
-                        <p>This image is stored on IPFS & The Ethereum Blockchain!</p>
+                        <p>This image is stored on IPFS & The Ethereum Blockchain! </p>
+                        <p>IPFS Hash : {this.state.ipfsHash}</p>
                         <img
                           src={`http://127.0.0.1:8080/ipfs/${this.state.ipfsHash}`}
                           alt="Image Loads Here"

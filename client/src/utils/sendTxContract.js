@@ -23,7 +23,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x9e5c196c"
     },
     {
       "constant": true,
@@ -37,7 +38,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0xacbe8cee"
     },
     {
       "constant": true,
@@ -59,7 +61,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x5fd7b16a"
     },
     {
       "constant": false,
@@ -81,7 +84,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xc12b577b"
     },
     {
       "constant": false,
@@ -103,7 +107,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x85870a6f"
     },
     {
       "constant": false,
@@ -133,7 +138,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xb7c2d050"
     },
     {
       "constant": false,
@@ -147,7 +153,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x18014d15"
     },
     {
       "constant": false,
@@ -161,7 +168,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x5179fc49"
     },
     {
       "constant": false,
@@ -175,7 +183,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xb204e9f3"
     },
     {
       "constant": true,
@@ -198,7 +207,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x95d3113a"
     },
     {
       "constant": true,
@@ -221,7 +231,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x92f0a140"
     },
     {
       "constant": false,
@@ -235,7 +246,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x79554453"
     },
     {
       "constant": false,
@@ -249,7 +261,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xb08ab8ea"
     },
     {
       "constant": false,
@@ -263,7 +276,55 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xa2ddb37c"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_studentAddress",
+          "type": "address"
+        },
+        {
+          "name": "_certid",
+          "type": "uint256"
+        },
+        {
+          "name": "_certContent",
+          "type": "string"
+        }
+      ],
+      "name": "addHash",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function",
+      "signature": "0x4c787ef0"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "studentAddress",
+          "type": "address"
+        },
+        {
+          "name": "collegeAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getHash",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function",
+      "signature": "0xf8cc1850"
     },
     {
       "constant": false,
@@ -277,7 +338,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xcf14ae64"
     },
     {
       "constant": true,
@@ -296,7 +358,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x62efca38"
     }
   ]`,
   contractAddress: '0xE527345B8ba8aCa4440EE3723c6A61ad1C087d66',

@@ -18,6 +18,49 @@ class conveyance extends Component {
     };
   }
 
+  /* componentDidMount = async () => {
+     try {
+       // Get network provider and web3 instance.
+       const web3 = await getWeb3();
+ 
+       // Use web3 to get the user's accounts.
+       const accounts = await web3.eth.getAccounts();
+ 
+       // Get the contract instance.
+       const networkId = await web3.eth.net.getId();
+       const deployedNetwork =
+         RegistrationAndCertificateContractFactory.networks[networkId];
+       const instance = new web3.eth.Contract(
+         RegistrationAndCertificateContractFactory.abi,
+         deployedNetwork && deployedNetwork.address
+       );
+ 
+       // Set web3, accounts, and contract to the state, and then proceed with an
+       // example of interacting with the contract's methods.
+       this.setState({ web3, accounts, contract: instance }, this.getAddresses);
+     } catch (error) {
+       // Catch any errors for any of the above operations.
+       alert(
+         `Failed to load web3, accounts, or contract. Check console for details.`
+       );
+       console.error(error);
+     }
+   };
+ 
+   runExample = async () => {
+     const a = await contract.methods
+       .getRegistrationStatus(
+         "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
+         "0x5446640647e082be1c7003A467C09dc8eA5A0532"
+       )
+       .call();
+     // console.log("Value of a is : ", a);
+     this.setState({ astate: a });
+     console.log("Status is ", this.state.astate);
+ 
+ 
+   } */
+
 
   render() {
 
@@ -31,9 +74,6 @@ class conveyance extends Component {
       timeLine: ["Registration", "Certification", "Acceptance"]
     };
 
-    //if (this.state.redirect) {
-    //  return (<Redirect to="/student" />);
-    // }
     return (
       <div>
         <Uppernav />

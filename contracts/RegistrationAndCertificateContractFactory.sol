@@ -139,7 +139,19 @@ contract RegistrationAndCertificateContractFactory {
     }
     function issueCertification(address _studentAddress) public{
         CertificateContract certContract = CertificateContract(collegesInfo[msg.sender].certificateContractsByStudent[_studentAddress]);
-        certContract.issueCertificate();
+        certContract.issueCertificate();   
+    }
+
+    function addHash(address _studentAddress,uint _certid, string memory _certContent) public {
+        CertificateContract certContract = CertificateContract(collegesInfo[msg.sender].certificateContractsByStudent[_studentAddress]);
+        certContract.setCertificate(_certid,_certContent);
+    }
+
+
+    function getHash(address studentAddress, address collegeAddress) public view returns (string memory) {
+        address certificateContractAddress = studentsInfo[studentAddress].certificateContractsByCollege[collegeAddress];
+        CertificateContract certificateContract = CertificateContract(certificateContractAddress);
+        return certificateContract.getCertificate();
         
     }
     function acceptCertification(address _collegeAddress) public{
@@ -168,7 +180,7 @@ contract RegistrationContract {
     StudentInfo studentInfo;
          
     constructor(
-            address _studentAddress, address _collegeAddress, string memory collegeRegNumber, string memory collegeEmailId, uint collegeDoJ, uint collegeDateOfPassing) public{
+        address _studentAddress, address _collegeAddress, string memory collegeRegNumber, string memory collegeEmailId, uint collegeDoJ, uint collegeDateOfPassing) public{
         studentAddress = _studentAddress;
         collegeAddress = _collegeAddress;
         studentInfo = StudentInfo(collegeRegNumber, collegeEmailId, collegeDoJ, collegeDateOfPassing);
@@ -265,10 +277,8 @@ contract CertificateContract {
     address issuerAddress;
     address recipientAddress;
         
-    struct cert {
-        uint256 certId;
-        string certContent;
-    }
+    uint256 public certId;
+    string public certContent;
 
     enum CertificateStages {
         AcceptingCertificateRequest,
@@ -279,10 +289,15 @@ contract CertificateContract {
 
     CertificateStages public stage = CertificateStages.AcceptingCertificateRequest;
 
-    
-    mapping (uint256 => cert) certificates;
-    mapping (address => uint256) certificatesByIssuer;
-    mapping (address => uint256) certificatesByRecipient;
+    function setCertificate(uint _certid, string memory _certContent) public {
+        certId = _certid;
+        certContent = _certContent;
+    }
+
+    function getCertificate() public view returns (string memory){
+        return certContent;
+    }
+
 
     modifier isApproved(address _collegeAddress,address _studentAddress,address _regAddress){
         RegistrationContract regContract = RegistrationContract(_regAddress);
@@ -318,7 +333,7 @@ contract CertificateContract {
     
     }
 
-
+    
 // issue certificate only to registered students in a particular college
     function issueCertificate() 
     atStage(CertificateStages.RequestCertificate)

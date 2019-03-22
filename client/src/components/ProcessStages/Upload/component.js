@@ -17,7 +17,7 @@ class Upload extends Component {
             account: null
         };
         this.captureFile = this.captureFile.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        //  this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount = async () => {
@@ -59,8 +59,35 @@ class Upload extends Component {
         };
     }
 
+    addCertificate = event => {
+        event.preventDefault();
+        var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
+        let wallet = JSON.parse(localStorage.getItem('wallet'));
+        let password = localStorage.getItem('password');
+        let walletRead = Wallet.fromV3(wallet, password)
+        let privKey = walletRead.getPrivateKeyString();
+        console.log(walletRead.getPrivateKeyString());
+        const { web3, accounts, contract } = this.state;
+
+        Transaction.doInteractionWithSC(privKey, wallet.address, `addHash('${stdAddress}',1,'${this.state.ipfsHash}')`);
+        console.log("IPFS Added");
+        window.confirm("Hash Added");
+
+    }
+
     issueCertificate = event => {
         event.preventDefault();
+
+        ipfs.add(this.state.buffer, (error, result) => {
+            if (error) {
+                console.error(error);
+                return;
+            }
+            this.setState({ ipfsHash: result[0].hash });
+            console.log("ipfsHash", this.state.ipfsHash);
+        });
+
+
         var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
         let wallet = JSON.parse(localStorage.getItem('wallet'));
         let password = localStorage.getItem('password');
@@ -73,10 +100,19 @@ class Upload extends Component {
         window.confirm("You have successfully uploaded the Certificate");
 
 
+        // Transaction.doInteractionWithSC(privKey, wallet.address, `addHash('${stdAddress}',1,'${this.state.ipfsHash}')`);
+        // console.log("IPFS Added");
+
+        //var hash = Transaction.doInteractionWithSC(privKey,wallet.address,`getCertificateHash`)
+
+
+        /* Storing IPFS Hash in Smart Contract */
+
+
         /*const { accounts, contract } = this.state;
 
         contract.methods
-            .issueCertification(accounts[0])
+            .setCertificate(accounts[0])
             .send({ from: accounts[1], gas: 330000 })
             .then(function (result) {
                 console.log(result);
@@ -84,36 +120,39 @@ class Upload extends Component {
             })
             .catch(function (e) {
                 console.log(e);
-            }); */
+            });  */
     };
 
-    onSubmit(event) {
-        event.preventDefault();
-        ipfs.add(this.state.buffer, (error, result) => {
-            if (error) {
-                console.error(error);
-                return;
-            }
-            this.setState({ ipfsHash: result[0].hash });
-            console.log("ipfsHash", this.state.ipfsHash);
-        });
-    }
+    /* onSubmit(event) {
+         event.preventDefault();
+         ipfs.add(this.state.buffer, (error, result) => {
+             if (error) {
+                 console.error(error);
+                 return;
+             }
+             this.setState({ ipfsHash: result[0].hash });
+             console.log("ipfsHash", this.state.ipfsHash);
+         });
+     } */
     render() {
         return (
             <div>
                 <h2>Upload Certificate</h2>
-                <form onSubmit={this.onSubmit}>
+                <form>
 
                     <div className="form-group">
                         <input type="file" className="form-control col-sm-4" onChange={this.captureFile} />
                         <button onClick={this.issueCertificate}> Upload Certificate </button>
                     </div>
                     <div className="form-group">
+                        <button onClick={this.addCertificate}> Add Certificate </button>
+                    </div>
+
+                    <div className="form-group">
                         <div className="col-sm-offset-2 ">
                             <button
                                 type="submit"
                                 className="btn btn-primary"
-                                onClick={this.handleView}
                             >
                                 View Certificate
                             </button>
