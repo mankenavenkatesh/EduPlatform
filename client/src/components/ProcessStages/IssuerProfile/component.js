@@ -15,7 +15,8 @@ class IssuerProfile extends Component {
       web3: null,
       accounts: null,
       contract: null,
-      instance: null
+      instance: null,
+      regContractAddress: null,
     };
   }
 
@@ -50,7 +51,8 @@ class IssuerProfile extends Component {
 
 
   handleVerify = event => {
-    var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
+    // var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
+    let stdAddress = localStorage.getItem('studentAddress');
 
     event.preventDefault();
 
@@ -78,7 +80,7 @@ class IssuerProfile extends Component {
   };
 
   handleApprove = event => {
-    var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
+    let stdAddress = localStorage.getItem('studentAddress');
 
     event.preventDefault();
     let wallet = JSON.parse(localStorage.getItem('wallet'));
@@ -134,11 +136,30 @@ class IssuerProfile extends Component {
       })
   };
 
+  getData = async () => {
+    const { accounts, contract } = this.state;
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    console.log(wallet.address);
+    const a = await contract.methods
+      .cRegistrationContract()
+      .call({ from: wallet.address });
+
+    console.log("Registration Contract address is ", a);
+    this.setState({ regContractAddress: a });
+    console.log(this.state.regContractAddress);
+
+    const c = await contract.methods.regStuCollAddress(a).call({ from: wallet.address });
+    console.log("Student Address", c[0]);
+    console.log("College Address", c[1]);
+
+
+  }
+
   render() {
     return (
       <div>
         <div className="iprofile">
-          <form className="form-horizontal" onSubmit={this.handleSubmit}>
+          <form className="form-horizontal">
             <div className="form-group">
               <label className="control-label col-sm-2">College Name</label>
               <div className="col-sm-4">
@@ -255,6 +276,14 @@ class IssuerProfile extends Component {
               </div>
             </div>
           </form>
+          <button
+
+            className="btn btn-primary"
+            onClick={this.getData}
+          >
+            Get Data
+</button>
+
         </div>
       </div>
     );

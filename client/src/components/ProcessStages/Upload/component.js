@@ -60,8 +60,9 @@ class Upload extends Component {
     }
 
     addCertificate = event => {
+        let stdAddress = localStorage.getItem('studentAddress');
         event.preventDefault();
-        var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
+        //var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
         let wallet = JSON.parse(localStorage.getItem('wallet'));
         let password = localStorage.getItem('password');
         let walletRead = Wallet.fromV3(wallet, password)
@@ -76,6 +77,7 @@ class Upload extends Component {
     }
 
     issueCertificate = event => {
+        let stdAddress = localStorage.getItem('studentAddress');
         event.preventDefault();
 
         ipfs.add(this.state.buffer, (error, result) => {
@@ -88,7 +90,7 @@ class Upload extends Component {
         });
 
 
-        var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
+        // var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
         let wallet = JSON.parse(localStorage.getItem('wallet'));
         let password = localStorage.getItem('password');
         let walletRead = Wallet.fromV3(wallet, password)

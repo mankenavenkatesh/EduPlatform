@@ -130,6 +130,20 @@ app.get('/getAllCollege', (req, res) => {
     });
 })
 
+app.get('/getAllStudent', (req, res) => {
+    MongoClient.connect(dbUrl, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("sarup");
+        dbo.collection("users").find({ role: "student" }).toArray(function (err, result) {
+            let uniAddress = result.map(uni => {
+                return { name: uni.name, address: uni.wallet.address }
+            });
+            res.send(uniAddress);
+            db.close();
+        });
+    });
+})
+
 
 function verifyToken(req, res, next) {
     const bearerHeader = req.headers['authorization'];

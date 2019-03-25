@@ -16,7 +16,7 @@ contract RegistrationAndCertificateContractFactory {
         string instituteName;
         string instituteCode;
         string instituteAISHECode;
-        address[] registrationContracts;
+        address[] registrationContracts; // if the status is "Accept Registration" we need not show it under verify profile(other operations)
         mapping(address => address) registrationContractByStudent;
         address[] certificationContracts;
         mapping(address=>address) certificateContractsByStudent;
@@ -35,11 +35,47 @@ contract RegistrationAndCertificateContractFactory {
         return studentsInfo[msg.sender].registrationContracts[0];
     }
 
+    function cRegistrationContract() public view returns(address){
+        return collegesInfo[msg.sender].registrationContracts[0];
+    }
+
+    function sCertificationContract() public view returns(address){
+        return studentsInfo[msg.sender].certificationContracts[0];
+    }
+
+    function cCertificationContract() public view returns(address){
+        return collegesInfo[msg.sender].certificationContracts[0];
+    }
+
     function getStudentData() public view returns(string memory,uint,string memory){
         string memory _name = studentsInfo[msg.sender].fullName;
         uint _phoneNumber = studentsInfo[msg.sender].phoneNumber;
         string memory _emailId = studentsInfo[msg.sender].emailId;  
         return(_name,_phoneNumber,_emailId);
+    }
+
+    function getCollegeData() public view returns(string memory, string memory, string memory){
+        
+        string memory _instituteName=collegesInfo[msg.sender].instituteName;
+        string memory _instituteCode=collegesInfo[msg.sender].instituteCode;
+        string memory _instituteAISHECode=collegesInfo[msg.sender].instituteAISHECode;
+        return(_instituteName,_instituteCode,_instituteAISHECode);
+    }
+
+    function regStuCollAddress(address _regContractAddress) public view returns(address, address){
+        RegistrationContract registrationContract = RegistrationContract(_regContractAddress);
+        address studentAddress = registrationContract.getStudentAddress();
+        address collegeAddress = registrationContract.getCollegeAddress();
+        return(studentAddress,collegeAddress);
+
+    }
+
+    function certStuCollAddress(address _certContractAddress) public view returns(address, address){
+        CertificateContract certificateContract = CertificateContract(_certContractAddress);
+        address studentAddress = certificateContract.getStudentAddress();
+        address collegeAddress = certificateContract.getCollegeAddress();
+        return(studentAddress,collegeAddress);
+
     }
 
     /*function getRegisteredStudentData(address _studentAddress) public view returns(string memory,string memory,uint,uint){
@@ -166,8 +202,8 @@ contract RegistrationAndCertificateContractFactory {
 }
 
 contract RegistrationContract {
-    address studentAddress;
-    address collegeAddress;
+    address public studentAddress;
+    address public collegeAddress;
         
     uint a = 0;
     struct StudentInfo {
@@ -274,8 +310,8 @@ contract RegistrationContract {
 contract CertificateContract {
     
     uint public test = 0;
-    address issuerAddress;
-    address recipientAddress;
+    address public issuerAddress;
+    address public recipientAddress;
         
     uint256 public certId;
     string public certContent;
@@ -373,6 +409,13 @@ contract CertificateContract {
         if(CertificateStages.acceptCertificate == stage){
             return "acceptCertificate";
         }
+    }
+
+    function getStudentAddress() public view returns(address){
+        return recipientAddress;
+    }
+    function getCollegeAddress() public view returns(address){
+        return issuerAddress;
     }
 
 }

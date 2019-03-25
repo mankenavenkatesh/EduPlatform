@@ -49,8 +49,8 @@ class StartCert extends Component {
   };
 
   acceptRegsitration = event => {
+    let clgAddress = localStorage.getItem('collegeAddress');
     event.preventDefault();
-    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
 
     let wallet = JSON.parse(localStorage.getItem('wallet'));
     let password = localStorage.getItem('password');
@@ -77,9 +77,8 @@ class StartCert extends Component {
   };
 
   startCertification = event => {
+    let clgAddress = localStorage.getItem('collegeAddress');
     event.preventDefault();
-
-    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
 
     let wallet = JSON.parse(localStorage.getItem('wallet'));
     let password = localStorage.getItem('password');
@@ -108,9 +107,8 @@ class StartCert extends Component {
   };
 
   requestCertification = event => {
+    let clgAddress = localStorage.getItem('collegeAddress');
     event.preventDefault();
-
-    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
 
     let wallet = JSON.parse(localStorage.getItem('wallet'));
     let password = localStorage.getItem('password');
@@ -136,9 +134,10 @@ class StartCert extends Component {
   };
 
   acceptCertification = event => {
+    let clgAddress = localStorage.getItem('collegeAddress');
     event.preventDefault();
 
-    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
+    // var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
 
     let wallet = JSON.parse(localStorage.getItem('wallet'));
     let password = localStorage.getItem('password');
@@ -173,12 +172,15 @@ class StartCert extends Component {
   };
 
   getCertHash = event => {
+    let stdAddress = localStorage.getItem('studentAddress');
+    let clgAddress = localStorage.getItem('collegeAddress');
     event.preventDefault();
     const { accounts, contract } = this.state;
     const a = contract.methods
       .getHash(
-        "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
-        "0x5446640647e082be1c7003A467C09dc8eA5A0532"
+        stdAddress, clgAddress
+        // "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
+        // "0x5446640647e082be1c7003A467C09dc8eA5A0532"
       )
       .call().then((response) => {
         console.log(response);

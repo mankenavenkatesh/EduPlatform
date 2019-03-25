@@ -12,7 +12,10 @@ class ProcessStages extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggleStatus: true /* Property In Process Hide/Show flag */
+      toggleStatus: true,/* Property In Process Hide/Show flag */
+      studentAddress: null,
+      collegeAddress: null,
+      regStatus: null
     };
   }
   state = {};
@@ -36,7 +39,7 @@ class ProcessStages extends Component {
 
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
-      this.setState({ web3, accounts, contract: instance }, this.runExample);
+      this.setState({ web3, accounts, contract: instance }, this.getData);
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -46,163 +49,63 @@ class ProcessStages extends Component {
     }
   };
 
-  runExample = async () => {
-    const {
-      accounts,
-      contract,
-      astate,
-      bstate,
-      index11,
-      index21,
-      index31,
-      index41,
-      index51,
-      index61,
-      index71,
-      index81
-    } = this.state;
-
+  getData = async () => {
+    const { accounts, contract } = this.state;
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    console.log(wallet.address);
     const a = await contract.methods
-      .getRegistrationStatus(
-        "0x9cc53532815ccde2d97f09571bebd4a87a100b5e",
-        "0x99ba8eb7acd2b9d4f65f7e36ab026cedb57fb979"
+      .cRegistrationContract()
+      .call({ from: wallet.address });
+
+    console.log("Registration Contract address is ", a);
+    this.setState({ regContractAddress: a });
+    console.log(this.state.regContractAddress);
+
+    const c = await contract.methods.regStuCollAddress(a).call({ from: wallet.address });
+    console.log("Student Address", c[0]);
+    console.log("College Address", c[1]);
+    this.setState({ studentAddress: c[0] });
+    this.setState({ collegeAddress: c[1] });
+
+    localStorage.setItem('regContractAddress', a);
+    localStorage.setItem('studentAddress', c[0]);
+    localStorage.setItem('collegeAddress', c[1]);
+
+    const regstatus = await contract.methods
+      .getRegistrationStatus(c[0], c[1]
       )
       .call();
     // console.log("Value of a is : ", a);
-    this.setState({ astate: a });
-    console.log("Status is ", this.state.astate);
+    this.setState({ regStatus: regstatus });
+    console.log("Status is ", this.state.regStatus);
+  }
 
-    /*const b = await contract.methods
-      .getCertificationStatus()
-      .call();
-    console.log("Value of b is : ", b);
-    this.setState({ bstate: b });
-    console.log("Status is ", this.state.bstate); */
-
-    switch (a) {
-
-      case "RequestRegistration":
-        this.setState({
-          index11: "btn-success",
-          index21: "btn-primary",
-          index31: "btn-default",
-          index41: "btn-default"
-        });
-        break;
-
-      case "VerifyStudentProfile":
-        this.setState({
-          index11: "btn-success",
-          index21: "btn-success",
-          index31: "btn-primary",
-          index41: "btn-default"
-        });
-        break;
-
-      case "ApproveRegistration":
-        this.setState({
-          index11: "btn-success",
-          index21: "btn-success",
-          index31: "btn-success",
-          index41: "btn-primary"
-        });
-        break;
-
-      case "AcceptRegistration":
-        this.setState({
-          index11: "btn-success",
-          index21: "btn-success",
-          index31: "btn-success",
-          index41: "btn-success"
-        });
-        break;
-
-      case "AcceptingCertificateRequest":
-        this.setState({
-          index51: "btn-success",
-          index61: "btn-primary",
-          index71: "btn-default",
-          index81: "btn-default"
-        })
-    }
-
-    /* switch (b) {
- 
-       case "RequestRegistration":
-         this.setState({
-           index51: "btn-success",
-           index61: "btn-primary",
-           index71: "btn-default",
-           index81: "btn-default"
-         });
-         break;
- 
-       case "VerifyStudentProfile":
-         this.setState({
-           index51: "btn-success",
-           index61: "btn-success",
-           index71: "btn-primary",
-           index81: "btn-default"
-         });
-         break;
- 
-       case "ApproveRegistration":
-         this.setState({
-           index51: "btn-success",
-           index61: "btn-success",
-           index71: "btn-success",
-           index81: "btn-primary"
-         });
-         break;
- 
-       case "AcceptRegistration":
-         this.setState({
-           index51: "btn-success",
-           index61: "btn-success",
-           index71: "btn-success",
-           index81: "btn-success"
-         });
-         break;
-     } */
-
-    /* if (a == "AcceptRegistration") {
-       this.setState({
-         index11: "btn-success",
-         index21: "btn-success",
-         index31: "btn-success",
-         index41: "btn-success"
-       });
-     } else {
-       if (a == "ApproveRegistration") {
-         this.setState({
-           index11: "btn-success",
-           index21: "btn-success",
-           index31: "btn-success",
-           index41: "btn-primary"
-         });
-       } else {
-         if (a == "VerifyStudentProfile") {
-           this.setState({
-             index11: "btn-success",
-             index21: "btn-success",
-             index31: "btn-primary",
-             index41: "btn-default"
-           });
-         } else {
-           if (a == "RequestRegistration") {
-             this.setState({
-               index11: "btn-success",
-               index21: "btn-primary",
-               index31: "btn-default",
-               index41: "btn-default"
-             });
-           }
-         }
-       }
-     } */
-
-    // Update state with the result.
-    // this.setState({ storageValue: response });
+  runExample = event => {
+    event.preventDefault();
+    const {
+      accounts,
+      contract,
+    } = this.state;
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    contract.methods
+      .cRegistrationContract()
+      .call({ from: wallet.address })
+      .then(function (result1) {
+        console.log("Result 1 is: ", result1);
+        contract.methods
+          .regStuCollAddress(result1).call({ from: wallet.address })
+      }).then(function (result2) {
+        console.log("Result 2 is:", result2);
+        /*contract.methods
+          .getRegistrationStatus(result2[0], result2[1]
+          )
+          .call(); */
+      }).then(function (result3) {
+        console.log("Result 2 is: ", result3);
+      })
+      .catch(function (e) {
+        console.log(e);
+      });
   };
 
   render() {
@@ -211,34 +114,6 @@ class ProcessStages extends Component {
       window.location.pathname = '/studentprocess';
     }
 
-    var stage1 = "Request Registration";
-    var stage2 = "Verify Student Profile";
-    var stage3 = "Approve Registration";
-    var stage4 = "Accept Registration";
-    var stage5 = "Request Certification";
-    var stage6 = "Verify Certificate";
-    var stage7 = "Approve Certification";
-    var stage8 = "Accept Certification";
-
-    var stage_color = "success";
-
-    var index1 = "1";
-    var index2 = "2";
-    var index3 = "3";
-    var index4 = "4";
-    var index5 = "5";
-    var index6 = "6";
-    var index7 = "7";
-    var index8 = "8";
-
-    var status1 = "done";
-    var status2 = "btn-primary";
-    var status3 = "btn-default";
-    var status4 = "primary";
-    var status5 = "primary";
-    var status6 = "primary";
-    var status7 = "primary";
-    var status8 = "primary";
 
     return (
       <div>
@@ -248,6 +123,7 @@ class ProcessStages extends Component {
         <br />
         <br />
         <br />
+        <button onClick={this.runExample}> Run Example</button>
 
         <div className="container">
           <div className="flow">
@@ -274,7 +150,8 @@ class ProcessStages extends Component {
           <div className="process-title">
             <h2> Process Stages </h2>
           </div>
-          <Steps />
+          <Steps
+          /*studentAddress={this.state.studentAddress} collegeAddress={this.state.collegeAddress}/*reg={this.state.regStatus} */ />
           <br />
           <br />
           <TabBar />

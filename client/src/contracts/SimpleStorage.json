@@ -88,14 +88,14 @@
     "absolutePath": "/Users/mani/Edu/gitRepo/EduPlatform/contracts/SimpleStorage.sol",
     "exportedSymbols": {
       "SimpleStorage": [
-        1253
+        1423
       ]
     },
-    "id": 1254,
+    "id": 1424,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1160,
+        "id": 1330,
         "literals": [
           "solidity",
           "^",
@@ -111,19 +111,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1253,
+        "id": 1423,
         "linearizedBaseContracts": [
-          1253
+          1423
         ],
         "name": "SimpleStorage",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1162,
+            "id": 1332,
             "name": "storedData",
             "nodeType": "VariableDeclaration",
-            "scope": 1253,
+            "scope": 1423,
             "src": "54:15:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -132,7 +132,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1161,
+              "id": 1331,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "54:4:2",
@@ -146,10 +146,10 @@
           },
           {
             "constant": false,
-            "id": 1164,
+            "id": 1334,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 1253,
+            "scope": 1423,
             "src": "75:11:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -158,7 +158,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 1163,
+              "id": 1333,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "75:6:2",
@@ -172,14 +172,14 @@
           },
           {
             "canonicalName": "SimpleStorage.Student",
-            "id": 1169,
+            "id": 1339,
             "members": [
               {
                 "constant": false,
-                "id": 1166,
+                "id": 1336,
                 "name": "nme",
                 "nodeType": "VariableDeclaration",
-                "scope": 1169,
+                "scope": 1339,
                 "src": "118:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -188,7 +188,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1165,
+                  "id": 1335,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "118:6:2",
@@ -202,10 +202,10 @@
               },
               {
                 "constant": false,
-                "id": 1168,
+                "id": 1338,
                 "name": "phone",
                 "nodeType": "VariableDeclaration",
-                "scope": 1169,
+                "scope": 1339,
                 "src": "138:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -214,7 +214,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1167,
+                  "id": 1337,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "138:4:2",
@@ -229,42 +229,42 @@
             ],
             "name": "Student",
             "nodeType": "StructDefinition",
-            "scope": 1253,
+            "scope": 1423,
             "src": "93:66:2",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 1172,
+            "id": 1342,
             "name": "studentList",
             "nodeType": "VariableDeclaration",
-            "scope": 1253,
+            "scope": 1423,
             "src": "164:21:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Student_$1169_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Student_$1339_storage_$dyn_storage",
               "typeString": "struct SimpleStorage.Student[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 1170,
+                "id": 1340,
                 "name": "Student",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1169,
+                "referencedDeclaration": 1339,
                 "src": "164:7:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Student_$1169_storage_ptr",
+                  "typeIdentifier": "t_struct$_Student_$1339_storage_ptr",
                   "typeString": "struct SimpleStorage.Student"
                 }
               },
-              "id": 1171,
+              "id": 1341,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "164:9:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Student_$1169_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Student_$1339_storage_$dyn_storage_ptr",
                 "typeString": "struct SimpleStorage.Student[]"
               }
             },
@@ -273,21 +273,21 @@
           },
           {
             "constant": false,
-            "id": 1176,
+            "id": 1346,
             "name": "studentsInfo",
             "nodeType": "VariableDeclaration",
-            "scope": 1253,
+            "scope": 1423,
             "src": "191:40:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
               "typeString": "mapping(address => struct SimpleStorage.Student)"
             },
             "typeName": {
-              "id": 1175,
+              "id": 1345,
               "keyType": {
-                "id": 1173,
+                "id": 1343,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "199:7:2",
@@ -299,18 +299,18 @@
               "nodeType": "Mapping",
               "src": "191:27:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
                 "typeString": "mapping(address => struct SimpleStorage.Student)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 1174,
+                "id": 1344,
                 "name": "Student",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1169,
+                "referencedDeclaration": 1339,
                 "src": "210:7:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Student_$1169_storage_ptr",
+                  "typeIdentifier": "t_struct$_Student_$1339_storage_ptr",
                   "typeString": "struct SimpleStorage.Student"
                 }
               }
@@ -320,37 +320,37 @@
           },
           {
             "body": {
-              "id": 1203,
+              "id": 1373,
               "nodeType": "Block",
               "src": "296:151:2",
               "statements": [
                 {
                   "assignments": [
-                    1184
+                    1354
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1184,
+                      "id": 1354,
                       "name": "newStudent",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1203,
+                      "scope": 1373,
                       "src": "306:25:2",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Student_$1169_memory_ptr",
+                        "typeIdentifier": "t_struct$_Student_$1339_memory_ptr",
                         "typeString": "struct SimpleStorage.Student"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 1183,
+                        "id": 1353,
                         "name": "Student",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1169,
+                        "referencedDeclaration": 1339,
                         "src": "306:7:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Student_$1169_storage_ptr",
+                          "typeIdentifier": "t_struct$_Student_$1339_storage_ptr",
                           "typeString": "struct SimpleStorage.Student"
                         }
                       },
@@ -358,17 +358,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1189,
+                  "id": 1359,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1186,
+                        "id": 1356,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1178,
+                        "referencedDeclaration": 1348,
                         "src": "342:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -377,11 +377,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1187,
+                        "id": 1357,
                         "name": "_phone",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1180,
+                        "referencedDeclaration": 1350,
                         "src": "348:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -400,18 +400,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1185,
+                      "id": 1355,
                       "name": "Student",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1169,
+                      "referencedDeclaration": 1339,
                       "src": "334:7:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Student_$1169_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Student_$1339_storage_ptr_$",
                         "typeString": "type(struct SimpleStorage.Student storage pointer)"
                       }
                     },
-                    "id": 1188,
+                    "id": 1358,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -421,7 +421,7 @@
                     "nodeType": "FunctionCall",
                     "src": "334:21:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Student_$1169_memory",
+                      "typeIdentifier": "t_struct$_Student_$1339_memory",
                       "typeString": "struct SimpleStorage.Student memory"
                     }
                   },
@@ -434,14 +434,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1193,
+                        "id": 1363,
                         "name": "newStudent",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1184,
+                        "referencedDeclaration": 1354,
                         "src": "382:10:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Student_$1169_memory_ptr",
+                          "typeIdentifier": "t_struct$_Student_$1339_memory_ptr",
                           "typeString": "struct SimpleStorage.Student memory"
                         }
                       }
@@ -449,24 +449,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Student_$1169_memory_ptr",
+                          "typeIdentifier": "t_struct$_Student_$1339_memory_ptr",
                           "typeString": "struct SimpleStorage.Student memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1190,
+                        "id": 1360,
                         "name": "studentList",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1172,
+                        "referencedDeclaration": 1342,
                         "src": "365:11:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Student_$1169_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Student_$1339_storage_$dyn_storage",
                           "typeString": "struct SimpleStorage.Student storage ref[] storage ref"
                         }
                       },
-                      "id": 1192,
+                      "id": 1362,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -476,11 +476,11 @@
                       "referencedDeclaration": null,
                       "src": "365:16:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Student_$1169_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Student_$1339_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct SimpleStorage.Student storage ref) returns (uint256)"
                       }
                     },
-                    "id": 1194,
+                    "id": 1364,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -494,14 +494,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1195,
+                  "id": 1365,
                   "nodeType": "ExpressionStatement",
                   "src": "365:28:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1201,
+                    "id": 1371,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -510,34 +510,34 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1196,
+                        "id": 1366,
                         "name": "studentsInfo",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1176,
+                        "referencedDeclaration": 1346,
                         "src": "403:12:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
                           "typeString": "mapping(address => struct SimpleStorage.Student storage ref)"
                         }
                       },
-                      "id": 1199,
+                      "id": 1369,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1197,
+                          "id": 1367,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1268,
+                          "referencedDeclaration": 1438,
                           "src": "416:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 1198,
+                        "id": 1368,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -558,7 +558,7 @@
                       "nodeType": "IndexAccess",
                       "src": "403:24:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Student_$1169_storage",
+                        "typeIdentifier": "t_struct$_Student_$1339_storage",
                         "typeString": "struct SimpleStorage.Student storage ref"
                       }
                     },
@@ -566,46 +566,46 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1200,
+                      "id": 1370,
                       "name": "newStudent",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1184,
+                      "referencedDeclaration": 1354,
                       "src": "430:10:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Student_$1169_memory_ptr",
+                        "typeIdentifier": "t_struct$_Student_$1339_memory_ptr",
                         "typeString": "struct SimpleStorage.Student memory"
                       }
                     },
                     "src": "403:37:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Student_$1169_storage",
+                      "typeIdentifier": "t_struct$_Student_$1339_storage",
                       "typeString": "struct SimpleStorage.Student storage ref"
                     }
                   },
-                  "id": 1202,
+                  "id": 1372,
                   "nodeType": "ExpressionStatement",
                   "src": "403:37:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1204,
+            "id": 1374,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createS",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1181,
+              "id": 1351,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1178,
+                  "id": 1348,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1204,
+                  "scope": 1374,
                   "src": "255:19:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -614,7 +614,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1177,
+                    "id": 1347,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "255:6:2",
@@ -628,10 +628,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1180,
+                  "id": 1350,
                   "name": "_phone",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1204,
+                  "scope": 1374,
                   "src": "276:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -640,7 +640,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1179,
+                    "id": 1349,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "276:4:2",
@@ -656,12 +656,12 @@
               "src": "254:34:2"
             },
             "returnParameters": {
-              "id": 1182,
+              "id": 1352,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "296:0:2"
             },
-            "scope": 1253,
+            "scope": 1423,
             "src": "238:209:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -669,7 +669,7 @@
           },
           {
             "body": {
-              "id": 1223,
+              "id": 1393,
               "nodeType": "Block",
               "src": "509:89:2",
               "statements": [
@@ -683,34 +683,34 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1211,
+                            "id": 1381,
                             "name": "studentsInfo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1176,
+                            "referencedDeclaration": 1346,
                             "src": "526:12:2",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
                               "typeString": "mapping(address => struct SimpleStorage.Student storage ref)"
                             }
                           },
-                          "id": 1214,
+                          "id": 1384,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1212,
+                              "id": 1382,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1268,
+                              "referencedDeclaration": 1438,
                               "src": "539:3:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
                                 "typeString": "msg"
                               }
                             },
-                            "id": 1213,
+                            "id": 1383,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -731,18 +731,18 @@
                           "nodeType": "IndexAccess",
                           "src": "526:24:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Student_$1169_storage",
+                            "typeIdentifier": "t_struct$_Student_$1339_storage",
                             "typeString": "struct SimpleStorage.Student storage ref"
                           }
                         },
-                        "id": 1215,
+                        "id": 1385,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "nme",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1166,
+                        "referencedDeclaration": 1336,
                         "src": "526:28:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -755,34 +755,34 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1216,
+                            "id": 1386,
                             "name": "studentsInfo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1176,
+                            "referencedDeclaration": 1346,
                             "src": "555:12:2",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
                               "typeString": "mapping(address => struct SimpleStorage.Student storage ref)"
                             }
                           },
-                          "id": 1219,
+                          "id": 1389,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1217,
+                              "id": 1387,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1268,
+                              "referencedDeclaration": 1438,
                               "src": "568:3:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
                                 "typeString": "msg"
                               }
                             },
-                            "id": 1218,
+                            "id": 1388,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -803,18 +803,18 @@
                           "nodeType": "IndexAccess",
                           "src": "555:24:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Student_$1169_storage",
+                            "typeIdentifier": "t_struct$_Student_$1339_storage",
                             "typeString": "struct SimpleStorage.Student storage ref"
                           }
                         },
-                        "id": 1220,
+                        "id": 1390,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "phone",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1168,
+                        "referencedDeclaration": 1338,
                         "src": "555:30:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -822,7 +822,7 @@
                         }
                       }
                     ],
-                    "id": 1221,
+                    "id": 1391,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -835,36 +835,36 @@
                       "typeString": "tuple(string storage ref,uint256)"
                     }
                   },
-                  "functionReturnParameters": 1210,
-                  "id": 1222,
+                  "functionReturnParameters": 1380,
+                  "id": 1392,
                   "nodeType": "Return",
                   "src": "519:67:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1224,
+            "id": 1394,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getS",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1205,
+              "id": 1375,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "466:2:2"
             },
             "returnParameters": {
-              "id": 1210,
+              "id": 1380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1207,
+                  "id": 1377,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1224,
+                  "scope": 1394,
                   "src": "489:13:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -873,7 +873,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1206,
+                    "id": 1376,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "489:6:2",
@@ -887,10 +887,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1209,
+                  "id": 1379,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1224,
+                  "scope": 1394,
                   "src": "503:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -899,7 +899,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1208,
+                    "id": 1378,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "503:4:2",
@@ -914,7 +914,7 @@
               ],
               "src": "488:20:2"
             },
-            "scope": 1253,
+            "scope": 1423,
             "src": "453:145:2",
             "stateMutability": "view",
             "superFunction": null,
@@ -922,25 +922,25 @@
           },
           {
             "body": {
-              "id": 1239,
+              "id": 1409,
               "nodeType": "Block",
               "src": "653:54:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1233,
+                    "id": 1403,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1231,
+                      "id": 1401,
                       "name": "storedData",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1162,
+                      "referencedDeclaration": 1332,
                       "src": "663:10:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -951,11 +951,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1232,
+                      "id": 1402,
                       "name": "x",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1228,
+                      "referencedDeclaration": 1398,
                       "src": "676:1:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -968,25 +968,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1234,
+                  "id": 1404,
                   "nodeType": "ExpressionStatement",
                   "src": "663:14:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1237,
+                    "id": 1407,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1235,
+                      "id": 1405,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1164,
+                      "referencedDeclaration": 1334,
                       "src": "687:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -997,11 +997,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1236,
+                      "id": 1406,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1226,
+                      "referencedDeclaration": 1396,
                       "src": "694:5:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -1014,29 +1014,29 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 1238,
+                  "id": 1408,
                   "nodeType": "ExpressionStatement",
                   "src": "687:12:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1240,
+            "id": 1410,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "set",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1229,
+              "id": 1399,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1226,
+                  "id": 1396,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1240,
+                  "scope": 1410,
                   "src": "617:19:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1045,7 +1045,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1225,
+                    "id": 1395,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "617:6:2",
@@ -1059,10 +1059,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1228,
+                  "id": 1398,
                   "name": "x",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1240,
+                  "scope": 1410,
                   "src": "638:6:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1071,7 +1071,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1227,
+                    "id": 1397,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "638:4:2",
@@ -1087,12 +1087,12 @@
               "src": "616:29:2"
             },
             "returnParameters": {
-              "id": 1230,
+              "id": 1400,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "653:0:2"
             },
-            "scope": 1253,
+            "scope": 1423,
             "src": "604:103:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1100,7 +1100,7 @@
           },
           {
             "body": {
-              "id": 1251,
+              "id": 1421,
               "nodeType": "Block",
               "src": "769:41:2",
               "statements": [
@@ -1110,11 +1110,11 @@
                     "components": [
                       {
                         "argumentTypes": null,
-                        "id": 1247,
+                        "id": 1417,
                         "name": "name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1164,
+                        "referencedDeclaration": 1334,
                         "src": "787:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -1123,11 +1123,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1248,
+                        "id": 1418,
                         "name": "storedData",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1162,
+                        "referencedDeclaration": 1332,
                         "src": "792:10:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1135,7 +1135,7 @@
                         }
                       }
                     ],
-                    "id": 1249,
+                    "id": 1419,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -1148,36 +1148,36 @@
                       "typeString": "tuple(string storage ref,uint256)"
                     }
                   },
-                  "functionReturnParameters": 1246,
-                  "id": 1250,
+                  "functionReturnParameters": 1416,
+                  "id": 1420,
                   "nodeType": "Return",
                   "src": "779:24:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1252,
+            "id": 1422,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "get",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1241,
+              "id": 1411,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "725:2:2"
             },
             "returnParameters": {
-              "id": 1246,
+              "id": 1416,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1243,
+                  "id": 1413,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1252,
+                  "scope": 1422,
                   "src": "749:13:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1186,7 +1186,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1242,
+                    "id": 1412,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "749:6:2",
@@ -1200,10 +1200,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1245,
+                  "id": 1415,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1252,
+                  "scope": 1422,
                   "src": "763:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1212,7 +1212,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1244,
+                    "id": 1414,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "763:4:2",
@@ -1227,14 +1227,14 @@
               ],
               "src": "748:20:2"
             },
-            "scope": 1253,
+            "scope": 1423,
             "src": "713:97:2",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1254,
+        "scope": 1424,
         "src": "25:787:2"
       }
     ],
@@ -1244,14 +1244,14 @@
     "absolutePath": "/Users/mani/Edu/gitRepo/EduPlatform/contracts/SimpleStorage.sol",
     "exportedSymbols": {
       "SimpleStorage": [
-        1253
+        1423
       ]
     },
-    "id": 1254,
+    "id": 1424,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1160,
+        "id": 1330,
         "literals": [
           "solidity",
           "^",
@@ -1267,19 +1267,19 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 1253,
+        "id": 1423,
         "linearizedBaseContracts": [
-          1253
+          1423
         ],
         "name": "SimpleStorage",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 1162,
+            "id": 1332,
             "name": "storedData",
             "nodeType": "VariableDeclaration",
-            "scope": 1253,
+            "scope": 1423,
             "src": "54:15:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1288,7 +1288,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 1161,
+              "id": 1331,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "54:4:2",
@@ -1302,10 +1302,10 @@
           },
           {
             "constant": false,
-            "id": 1164,
+            "id": 1334,
             "name": "name",
             "nodeType": "VariableDeclaration",
-            "scope": 1253,
+            "scope": 1423,
             "src": "75:11:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -1314,7 +1314,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 1163,
+              "id": 1333,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "75:6:2",
@@ -1328,14 +1328,14 @@
           },
           {
             "canonicalName": "SimpleStorage.Student",
-            "id": 1169,
+            "id": 1339,
             "members": [
               {
                 "constant": false,
-                "id": 1166,
+                "id": 1336,
                 "name": "nme",
                 "nodeType": "VariableDeclaration",
-                "scope": 1169,
+                "scope": 1339,
                 "src": "118:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1344,7 +1344,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1165,
+                  "id": 1335,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "118:6:2",
@@ -1358,10 +1358,10 @@
               },
               {
                 "constant": false,
-                "id": 1168,
+                "id": 1338,
                 "name": "phone",
                 "nodeType": "VariableDeclaration",
-                "scope": 1169,
+                "scope": 1339,
                 "src": "138:10:2",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1370,7 +1370,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1167,
+                  "id": 1337,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
                   "src": "138:4:2",
@@ -1385,42 +1385,42 @@
             ],
             "name": "Student",
             "nodeType": "StructDefinition",
-            "scope": 1253,
+            "scope": 1423,
             "src": "93:66:2",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 1172,
+            "id": 1342,
             "name": "studentList",
             "nodeType": "VariableDeclaration",
-            "scope": 1253,
+            "scope": 1423,
             "src": "164:21:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Student_$1169_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Student_$1339_storage_$dyn_storage",
               "typeString": "struct SimpleStorage.Student[]"
             },
             "typeName": {
               "baseType": {
                 "contractScope": null,
-                "id": 1170,
+                "id": 1340,
                 "name": "Student",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1169,
+                "referencedDeclaration": 1339,
                 "src": "164:7:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Student_$1169_storage_ptr",
+                  "typeIdentifier": "t_struct$_Student_$1339_storage_ptr",
                   "typeString": "struct SimpleStorage.Student"
                 }
               },
-              "id": 1171,
+              "id": 1341,
               "length": null,
               "nodeType": "ArrayTypeName",
               "src": "164:9:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Student_$1169_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Student_$1339_storage_$dyn_storage_ptr",
                 "typeString": "struct SimpleStorage.Student[]"
               }
             },
@@ -1429,21 +1429,21 @@
           },
           {
             "constant": false,
-            "id": 1176,
+            "id": 1346,
             "name": "studentsInfo",
             "nodeType": "VariableDeclaration",
-            "scope": 1253,
+            "scope": 1423,
             "src": "191:40:2",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
               "typeString": "mapping(address => struct SimpleStorage.Student)"
             },
             "typeName": {
-              "id": 1175,
+              "id": 1345,
               "keyType": {
-                "id": 1173,
+                "id": 1343,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "199:7:2",
@@ -1455,18 +1455,18 @@
               "nodeType": "Mapping",
               "src": "191:27:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
                 "typeString": "mapping(address => struct SimpleStorage.Student)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 1174,
+                "id": 1344,
                 "name": "Student",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1169,
+                "referencedDeclaration": 1339,
                 "src": "210:7:2",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Student_$1169_storage_ptr",
+                  "typeIdentifier": "t_struct$_Student_$1339_storage_ptr",
                   "typeString": "struct SimpleStorage.Student"
                 }
               }
@@ -1476,37 +1476,37 @@
           },
           {
             "body": {
-              "id": 1203,
+              "id": 1373,
               "nodeType": "Block",
               "src": "296:151:2",
               "statements": [
                 {
                   "assignments": [
-                    1184
+                    1354
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1184,
+                      "id": 1354,
                       "name": "newStudent",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1203,
+                      "scope": 1373,
                       "src": "306:25:2",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Student_$1169_memory_ptr",
+                        "typeIdentifier": "t_struct$_Student_$1339_memory_ptr",
                         "typeString": "struct SimpleStorage.Student"
                       },
                       "typeName": {
                         "contractScope": null,
-                        "id": 1183,
+                        "id": 1353,
                         "name": "Student",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 1169,
+                        "referencedDeclaration": 1339,
                         "src": "306:7:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Student_$1169_storage_ptr",
+                          "typeIdentifier": "t_struct$_Student_$1339_storage_ptr",
                           "typeString": "struct SimpleStorage.Student"
                         }
                       },
@@ -1514,17 +1514,17 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1189,
+                  "id": 1359,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1186,
+                        "id": 1356,
                         "name": "_name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1178,
+                        "referencedDeclaration": 1348,
                         "src": "342:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -1533,11 +1533,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1187,
+                        "id": 1357,
                         "name": "_phone",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1180,
+                        "referencedDeclaration": 1350,
                         "src": "348:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1556,18 +1556,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 1185,
+                      "id": 1355,
                       "name": "Student",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1169,
+                      "referencedDeclaration": 1339,
                       "src": "334:7:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_Student_$1169_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_Student_$1339_storage_ptr_$",
                         "typeString": "type(struct SimpleStorage.Student storage pointer)"
                       }
                     },
-                    "id": 1188,
+                    "id": 1358,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1577,7 +1577,7 @@
                     "nodeType": "FunctionCall",
                     "src": "334:21:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Student_$1169_memory",
+                      "typeIdentifier": "t_struct$_Student_$1339_memory",
                       "typeString": "struct SimpleStorage.Student memory"
                     }
                   },
@@ -1590,14 +1590,14 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 1193,
+                        "id": 1363,
                         "name": "newStudent",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1184,
+                        "referencedDeclaration": 1354,
                         "src": "382:10:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Student_$1169_memory_ptr",
+                          "typeIdentifier": "t_struct$_Student_$1339_memory_ptr",
                           "typeString": "struct SimpleStorage.Student memory"
                         }
                       }
@@ -1605,24 +1605,24 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Student_$1169_memory_ptr",
+                          "typeIdentifier": "t_struct$_Student_$1339_memory_ptr",
                           "typeString": "struct SimpleStorage.Student memory"
                         }
                       ],
                       "expression": {
                         "argumentTypes": null,
-                        "id": 1190,
+                        "id": 1360,
                         "name": "studentList",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1172,
+                        "referencedDeclaration": 1342,
                         "src": "365:11:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Student_$1169_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Student_$1339_storage_$dyn_storage",
                           "typeString": "struct SimpleStorage.Student storage ref[] storage ref"
                         }
                       },
-                      "id": 1192,
+                      "id": 1362,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1632,11 +1632,11 @@
                       "referencedDeclaration": null,
                       "src": "365:16:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Student_$1169_storage_$returns$_t_uint256_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Student_$1339_storage_$returns$_t_uint256_$",
                         "typeString": "function (struct SimpleStorage.Student storage ref) returns (uint256)"
                       }
                     },
-                    "id": 1194,
+                    "id": 1364,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1650,14 +1650,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1195,
+                  "id": 1365,
                   "nodeType": "ExpressionStatement",
                   "src": "365:28:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1201,
+                    "id": 1371,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1666,34 +1666,34 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 1196,
+                        "id": 1366,
                         "name": "studentsInfo",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1176,
+                        "referencedDeclaration": 1346,
                         "src": "403:12:2",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
                           "typeString": "mapping(address => struct SimpleStorage.Student storage ref)"
                         }
                       },
-                      "id": 1199,
+                      "id": 1369,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 1197,
+                          "id": 1367,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1268,
+                          "referencedDeclaration": 1438,
                           "src": "416:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 1198,
+                        "id": 1368,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1714,7 +1714,7 @@
                       "nodeType": "IndexAccess",
                       "src": "403:24:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Student_$1169_storage",
+                        "typeIdentifier": "t_struct$_Student_$1339_storage",
                         "typeString": "struct SimpleStorage.Student storage ref"
                       }
                     },
@@ -1722,46 +1722,46 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1200,
+                      "id": 1370,
                       "name": "newStudent",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1184,
+                      "referencedDeclaration": 1354,
                       "src": "430:10:2",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Student_$1169_memory_ptr",
+                        "typeIdentifier": "t_struct$_Student_$1339_memory_ptr",
                         "typeString": "struct SimpleStorage.Student memory"
                       }
                     },
                     "src": "403:37:2",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Student_$1169_storage",
+                      "typeIdentifier": "t_struct$_Student_$1339_storage",
                       "typeString": "struct SimpleStorage.Student storage ref"
                     }
                   },
-                  "id": 1202,
+                  "id": 1372,
                   "nodeType": "ExpressionStatement",
                   "src": "403:37:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1204,
+            "id": 1374,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createS",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1181,
+              "id": 1351,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1178,
+                  "id": 1348,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1204,
+                  "scope": 1374,
                   "src": "255:19:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -1770,7 +1770,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1177,
+                    "id": 1347,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "255:6:2",
@@ -1784,10 +1784,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1180,
+                  "id": 1350,
                   "name": "_phone",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1204,
+                  "scope": 1374,
                   "src": "276:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1796,7 +1796,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1179,
+                    "id": 1349,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "276:4:2",
@@ -1812,12 +1812,12 @@
               "src": "254:34:2"
             },
             "returnParameters": {
-              "id": 1182,
+              "id": 1352,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "296:0:2"
             },
-            "scope": 1253,
+            "scope": 1423,
             "src": "238:209:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -1825,7 +1825,7 @@
           },
           {
             "body": {
-              "id": 1223,
+              "id": 1393,
               "nodeType": "Block",
               "src": "509:89:2",
               "statements": [
@@ -1839,34 +1839,34 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1211,
+                            "id": 1381,
                             "name": "studentsInfo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1176,
+                            "referencedDeclaration": 1346,
                             "src": "526:12:2",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
                               "typeString": "mapping(address => struct SimpleStorage.Student storage ref)"
                             }
                           },
-                          "id": 1214,
+                          "id": 1384,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1212,
+                              "id": 1382,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1268,
+                              "referencedDeclaration": 1438,
                               "src": "539:3:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
                                 "typeString": "msg"
                               }
                             },
-                            "id": 1213,
+                            "id": 1383,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1887,18 +1887,18 @@
                           "nodeType": "IndexAccess",
                           "src": "526:24:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Student_$1169_storage",
+                            "typeIdentifier": "t_struct$_Student_$1339_storage",
                             "typeString": "struct SimpleStorage.Student storage ref"
                           }
                         },
-                        "id": 1215,
+                        "id": 1385,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "nme",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1166,
+                        "referencedDeclaration": 1336,
                         "src": "526:28:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -1911,34 +1911,34 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 1216,
+                            "id": 1386,
                             "name": "studentsInfo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1176,
+                            "referencedDeclaration": 1346,
                             "src": "555:12:2",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1169_storage_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Student_$1339_storage_$",
                               "typeString": "mapping(address => struct SimpleStorage.Student storage ref)"
                             }
                           },
-                          "id": 1219,
+                          "id": 1389,
                           "indexExpression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 1217,
+                              "id": 1387,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1268,
+                              "referencedDeclaration": 1438,
                               "src": "568:3:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_message",
                                 "typeString": "msg"
                               }
                             },
-                            "id": 1218,
+                            "id": 1388,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1959,18 +1959,18 @@
                           "nodeType": "IndexAccess",
                           "src": "555:24:2",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Student_$1169_storage",
+                            "typeIdentifier": "t_struct$_Student_$1339_storage",
                             "typeString": "struct SimpleStorage.Student storage ref"
                           }
                         },
-                        "id": 1220,
+                        "id": 1390,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "phone",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1168,
+                        "referencedDeclaration": 1338,
                         "src": "555:30:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -1978,7 +1978,7 @@
                         }
                       }
                     ],
-                    "id": 1221,
+                    "id": 1391,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -1991,36 +1991,36 @@
                       "typeString": "tuple(string storage ref,uint256)"
                     }
                   },
-                  "functionReturnParameters": 1210,
-                  "id": 1222,
+                  "functionReturnParameters": 1380,
+                  "id": 1392,
                   "nodeType": "Return",
                   "src": "519:67:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1224,
+            "id": 1394,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getS",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1205,
+              "id": 1375,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "466:2:2"
             },
             "returnParameters": {
-              "id": 1210,
+              "id": 1380,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1207,
+                  "id": 1377,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1224,
+                  "scope": 1394,
                   "src": "489:13:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2029,7 +2029,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1206,
+                    "id": 1376,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "489:6:2",
@@ -2043,10 +2043,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1209,
+                  "id": 1379,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1224,
+                  "scope": 1394,
                   "src": "503:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2055,7 +2055,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1208,
+                    "id": 1378,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "503:4:2",
@@ -2070,7 +2070,7 @@
               ],
               "src": "488:20:2"
             },
-            "scope": 1253,
+            "scope": 1423,
             "src": "453:145:2",
             "stateMutability": "view",
             "superFunction": null,
@@ -2078,25 +2078,25 @@
           },
           {
             "body": {
-              "id": 1239,
+              "id": 1409,
               "nodeType": "Block",
               "src": "653:54:2",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1233,
+                    "id": 1403,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1231,
+                      "id": 1401,
                       "name": "storedData",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1162,
+                      "referencedDeclaration": 1332,
                       "src": "663:10:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2107,11 +2107,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1232,
+                      "id": 1402,
                       "name": "x",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1228,
+                      "referencedDeclaration": 1398,
                       "src": "676:1:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -2124,25 +2124,25 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1234,
+                  "id": 1404,
                   "nodeType": "ExpressionStatement",
                   "src": "663:14:2"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 1237,
+                    "id": 1407,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 1235,
+                      "id": 1405,
                       "name": "name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1164,
+                      "referencedDeclaration": 1334,
                       "src": "687:4:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_storage",
@@ -2153,11 +2153,11 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 1236,
+                      "id": 1406,
                       "name": "_name",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1226,
+                      "referencedDeclaration": 1396,
                       "src": "694:5:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_string_memory_ptr",
@@ -2170,29 +2170,29 @@
                       "typeString": "string storage ref"
                     }
                   },
-                  "id": 1238,
+                  "id": 1408,
                   "nodeType": "ExpressionStatement",
                   "src": "687:12:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1240,
+            "id": 1410,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "set",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1229,
+              "id": 1399,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1226,
+                  "id": 1396,
                   "name": "_name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1240,
+                  "scope": 1410,
                   "src": "617:19:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2201,7 +2201,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1225,
+                    "id": 1395,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "617:6:2",
@@ -2215,10 +2215,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1228,
+                  "id": 1398,
                   "name": "x",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1240,
+                  "scope": 1410,
                   "src": "638:6:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2227,7 +2227,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1227,
+                    "id": 1397,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "638:4:2",
@@ -2243,12 +2243,12 @@
               "src": "616:29:2"
             },
             "returnParameters": {
-              "id": 1230,
+              "id": 1400,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "653:0:2"
             },
-            "scope": 1253,
+            "scope": 1423,
             "src": "604:103:2",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -2256,7 +2256,7 @@
           },
           {
             "body": {
-              "id": 1251,
+              "id": 1421,
               "nodeType": "Block",
               "src": "769:41:2",
               "statements": [
@@ -2266,11 +2266,11 @@
                     "components": [
                       {
                         "argumentTypes": null,
-                        "id": 1247,
+                        "id": 1417,
                         "name": "name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1164,
+                        "referencedDeclaration": 1334,
                         "src": "787:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_storage",
@@ -2279,11 +2279,11 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 1248,
+                        "id": 1418,
                         "name": "storedData",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1162,
+                        "referencedDeclaration": 1332,
                         "src": "792:10:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2291,7 +2291,7 @@
                         }
                       }
                     ],
-                    "id": 1249,
+                    "id": 1419,
                     "isConstant": false,
                     "isInlineArray": false,
                     "isLValue": false,
@@ -2304,36 +2304,36 @@
                       "typeString": "tuple(string storage ref,uint256)"
                     }
                   },
-                  "functionReturnParameters": 1246,
-                  "id": 1250,
+                  "functionReturnParameters": 1416,
+                  "id": 1420,
                   "nodeType": "Return",
                   "src": "779:24:2"
                 }
               ]
             },
             "documentation": null,
-            "id": 1252,
+            "id": 1422,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "get",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1241,
+              "id": 1411,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "725:2:2"
             },
             "returnParameters": {
-              "id": 1246,
+              "id": 1416,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1243,
+                  "id": 1413,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1252,
+                  "scope": 1422,
                   "src": "749:13:2",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -2342,7 +2342,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1242,
+                    "id": 1412,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "749:6:2",
@@ -2356,10 +2356,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 1245,
+                  "id": 1415,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1252,
+                  "scope": 1422,
                   "src": "763:4:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -2368,7 +2368,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1244,
+                    "id": 1414,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "763:4:2",
@@ -2383,14 +2383,14 @@
               ],
               "src": "748:20:2"
             },
-            "scope": 1253,
+            "scope": 1423,
             "src": "713:97:2",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 1254,
+        "scope": 1424,
         "src": "25:787:2"
       }
     ],
@@ -2409,7 +2409,7 @@
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-03-22T15:35:29.088Z",
+  "updatedAt": "2019-03-25T13:01:01.973Z",
   "devdoc": {
     "methods": {}
   },

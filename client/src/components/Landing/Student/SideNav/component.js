@@ -19,7 +19,7 @@ class studSideNav extends Component {
       contract: null,
       instance: null,
 
-
+      regContractAddress: null,
       userAddress: null,
       studentName: null,
       clgAddress: null,
@@ -78,20 +78,21 @@ class studSideNav extends Component {
   runExample = async () => {
     const { accounts, contract, astate } = this.state;
 
-    //const a = await contract.methods
-    //  .getStudentData()
-    //  .call();
-    //this.setState({ studentName: a[0] });
-    //console.log("Status is ", this.state.astate);
+    /* const a = await contract.methods
+       .getStudentData()
+       .call();
+     //this.setState({ studentName: a[0] });
+     console.log("Status is ", a); */
 
   };
 
+
   handleSubmit = event => {
-    // var clgAddress = this.state.clgAddress;
+    var clgAddress = this.state.clgAddress;
     // var patt = /\(([^)]+)\)/;
     // var clgVal = patt.match(clgAddress);
     console.log(clgAddress);
-    var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
+    //var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
     var clgRegNum = this.state.clgRegNum;
     var clgEmailID = this.state.clgEmailID;
     var clgYOJ = this.state.clgYOJ;
@@ -133,6 +134,41 @@ class studSideNav extends Component {
       var clgVal = patt.exec(clgAdd);
       console.log(clgVal, "Colge Address"); */
   };
+
+  getData = event => {
+    event.preventDefault();
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    let password = localStorage.getItem('password');
+    let walletRead = Wallet.fromV3(wallet, password)
+    let privKey = walletRead.getPrivateKeyString();
+    console.log(walletRead.getPrivateKeyString());
+    const { web3, accounts, contract } = this.state;
+    let abc = Transaction.doInteractionWithSC(privKey, wallet.address,
+      `getStudentData()`);
+    console.log(" Data is: ", abc);
+
+  }
+
+  getDataABC = async () => {
+    const { accounts, contract } = this.state;
+    let wallet = JSON.parse(localStorage.getItem('wallet'));
+    const a = await contract.methods
+      .getStudentData()
+      .call({ from: wallet.address });
+
+    console.log("Student Data is ", a);
+
+    const b = await contract.methods.getFirstStudent().call({ from: wallet.address });
+    console.log("Registration Contract Address is", b);
+    this.setState({ regContractAddress: b });
+
+    console.log(this.state.regContractAddress);
+
+    /* const c = await contract.methods.regStuCollAddress("b").call({ from: wallet.address });
+     console.log("Student Address", c[0]);
+     console.log("College Address", c[1]); */
+
+  }
 
   render() {
     return (
@@ -292,6 +328,7 @@ class studSideNav extends Component {
                   </div>
                 </div>
               </form>
+
             </div>
           </div>
         </div>

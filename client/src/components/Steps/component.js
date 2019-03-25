@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Well2 from "../../components/ProcessStages/Well2/component";
 import getWeb3 from "../../utils/getWeb3";
 import RegistrationAndCertificateContractFactory from "../../contracts/RegistrationAndCertificateContractFactory.json";
+
+const Wallet = require('ethereumjs-wallet');
+const Transaction = require('../../utils/sendTxContract');
+
 class StepsComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            studentAddress: null,
+            collegeAddress: null,
         };
     }
     componentDidMount = async () => {
@@ -50,18 +57,30 @@ class StepsComponent extends Component {
             index51,
             index61,
             index71,
-            index81
+            index81,
+            studentAddress,
+            collegeAddress,
         } = this.state;
 
+        this.setState({ studentAddress: localStorage.getItem('studentAddress') });
+        this.setState({ collegeAddress: localStorage.getItem('collegeAddress') });
+        console.log("Steps student:", this.state.studentAddress);
+        console.log("Steps college: ", this.state.collegeAddress);
+
+        let stdAddress = localStorage.getItem('studentAddress');
+        let clgAddress = localStorage.getItem('collegeAddress');
+
+        //  if (this.state.studentAddress && this.state.collegeAddress) {
         const a = await contract.methods
             .getRegistrationStatus(
-                "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
-                "0x5446640647e082be1c7003A467C09dc8eA5A0532"
+                // "0xB9b7034BEDebf594e1275E09aabFBfee44eA9C7c", "0x01482828B2EC7827C955985E7f14B8A111Bce48A"
+                stdAddress, clgAddress
             )
             .call();
         // console.log("Value of a is : ", a);
         this.setState({ astate: a });
-        console.log("Status is ", this.state.astate);
+        console.log("Status is JJJJ ", this.state.astate);
+        //  console.log("Props value is", this.props.reg);
 
 
         switch (a) {
@@ -112,9 +131,11 @@ class StepsComponent extends Component {
         }
 
         const b = await contract.methods
+
             .getCertificationStatus(
-                "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
-                "0x5446640647e082be1c7003A467C09dc8eA5A0532"
+                // "0xB9b7034BEDebf594e1275E09aabFBfee44eA9C7c",
+                // "0x01482828B2EC7827C955985E7f14B8A111Bce48A"
+                stdAddress, clgAddress
             )
             .call();
         console.log("Value of b is : ", b);
@@ -167,10 +188,32 @@ class StepsComponent extends Component {
                     index81: "btn-default"
                 })
         }
+        //    }
+
+    };
+
+    getStatus = async () => {
+        let stdAddress = localStorage.getItem('studentAddress');
+        let clgAddress = localStorage.getItem('collegeAddress');
+
+
+        const { web3, accounts, contract } = this.state;
+        const a = await contract.methods
+            .getRegistrationStatus(
+                // "0xB9b7034BEDebf594e1275E09aabFBfee44eA9C7c", "0x01482828B2EC7827C955985E7f14B8A111Bce48A"
+                stdAddress, clgAddress
+            )
+            .call();
+        this.setState({ astate: a });
+        console.log("Status is JJJJ ", this.state.astate);
+        // console.log("Value of a is : ", a);
+
 
     };
 
     render() {
+        console.log("Student Address:", this.props.studentAddress);
+        console.log("College Address", this.props.collegeAddress);
         var stage1 = "Request Registration";
         var stage2 = "Verify Student Profile";
         var stage3 = "Approve Registration";
@@ -191,14 +234,7 @@ class StepsComponent extends Component {
         var index7 = "7";
         var index8 = "8";
 
-        /*  var status1 = "done";
-          var status2 = "btn-primary";
-          var status3 = "btn-default";
-          var status4 = "primary";
-          var status5 = "primary";
-          var status6 = "primary";
-          var status7 = "primary";
-          var status8 = "primary"; */
+
         return (
             <div className="container">
                 <div className="stepwizard">
@@ -259,4 +295,9 @@ class StepsComponent extends Component {
     }
 }
 
+StepsComponent.propTypes = {
+    studentAddress: PropTypes.string,
+    collegeAddress: PropTypes.string,
+    //  reg: PropTypes.string
+}
 export default StepsComponent;
