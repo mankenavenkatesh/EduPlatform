@@ -80,6 +80,8 @@ class student extends Component {
     var emailID = this.state.emailID;
     let password = this.state.pwd;
     let username = this.state.username;
+    const { web3, accounts, contract } = this.state;
+    let value = web3.utils.toWei('20', 'ether');
     if (username && password) {
       console.log('Registering User....');
 
@@ -92,10 +94,9 @@ class student extends Component {
               let walletRead = Wallet.fromV3(response.data.data.wallet, response.data.data.password)
               let privKey = walletRead.getPrivateKeyString();
               console.log(walletRead.getPrivateKeyString());
-              const { web3, accounts, contract } = this.state;
-              let value = web3.utils.toWei('80', 'ether');
-              web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[0], value: value })
+
               Transaction.doInteractionWithSC(privKey, response.data.data.wallet.address, `createStudent('${sname}','${phone}','${emailID}')`)
+              web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[0], value: value })
             }
           }
         })

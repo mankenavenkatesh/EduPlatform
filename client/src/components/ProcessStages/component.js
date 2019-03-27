@@ -123,7 +123,7 @@ class ProcessStages extends Component {
         <br />
         <br />
         <br />
-        <button onClick={this.runExample}> Run Example</button>
+
 
         <div className="container">
           <div className="flow">

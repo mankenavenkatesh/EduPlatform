@@ -9,6 +9,7 @@ import pr from "../src/components/ProcessStages/component";
 import Pr from "../src/components/ProcessStages/component";
 import iTest from "../src/components/Certificate/UploadC/component";
 import BlockExplorer from "../src/components/BlockExplorer/component";
+import verifyCertificate from "../src/components/VerifyCertificate/component";
 
 import "./App.css";
 
@@ -60,6 +61,7 @@ class App extends Component {
               {() => <Uppernav token={this.state.token} role={this.state.role} />} />
             <Route exact path="/student" component={student} />
             <Route exact path="/verifier" component={verifier} />
+            <Route exact path="/verify-certificate" component={verifyCertificate} />
             <Route exact path="/issuer" component={issuer} />
             <PrivateRoute path="/studentprocess" component={() =>
               <Conveyance role={this.state.role} />

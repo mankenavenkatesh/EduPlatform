@@ -276,14 +276,6 @@ class IssuerProfile extends Component {
               </div>
             </div>
           </form>
-          <button
-
-            className="btn btn-primary"
-            onClick={this.getData}
-          >
-            Get Data
-</button>
-
         </div>
       </div>
     );

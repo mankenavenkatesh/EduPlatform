@@ -76,6 +76,26 @@ class Upload extends Component {
 
     }
 
+    getHash = event => {
+        let stdAddress = localStorage.getItem('studentAddress');
+        let clgAddress = localStorage.getItem('collegeAddress');
+        event.preventDefault();
+        const { accounts, contract } = this.state;
+        const a = contract.methods
+            .getHash(
+                stdAddress, clgAddress
+                // "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
+                // "0x5446640647e082be1c7003A467C09dc8eA5A0532"
+            )
+            .call().then((response) => {
+                console.log(response);
+                this.setState({ ipfsHash: response });
+            })
+        // console.log("Value of a is : ", a);
+
+        console.log("Status is ", this.state.ipfsHash);
+    }
+
     issueCertificate = event => {
         let stdAddress = localStorage.getItem('studentAddress');
         event.preventDefault();
@@ -155,6 +175,7 @@ class Upload extends Component {
                             <button
                                 type="submit"
                                 className="btn btn-primary"
+                                onClick={this.getHash}
                             >
                                 View Certificate
                             </button>

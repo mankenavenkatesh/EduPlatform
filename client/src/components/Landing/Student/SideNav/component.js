@@ -220,19 +220,6 @@ class studSideNav extends Component {
               <br />
               <form className="form-horizontal" onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                  <label className="control-label col-sm-2">College Name</label>
-                  <div className="col-sm-10">
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="clgAddress1"
-                      name="clgAddress1"
-                      placeholder="Enter College Name"
-                      onChange={this.handleInputChange}
-                    />
-                  </div>
-                </div>
-                <div className="form-group">
                   <label className="control-label col-sm-2">
                     Colleges List
                   </label>
