@@ -216,9 +216,9 @@ class studSideNav extends Component {
           </div>
           <div className="col-md-9">
             <div className="profile-content">
-              <h4> Registration Request Form </h4>
+              <h4 className="profile-heading"> Registration Request Form </h4>
               <br />
-              <form className="form-horizontal" onSubmit={this.handleSubmit}>
+              <form className="form-horizontal bb" onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <label className="control-label col-sm-2">
                     Colleges List

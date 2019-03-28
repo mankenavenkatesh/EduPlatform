@@ -6,9 +6,10 @@
 /* Profile sidebar */
 .profile-sidebar {
   padding: 20px 0 10px 0;
-  background: lightblue;
+  background:#1e2269;/*lightblue;*/
   /*height: 60px; */
-  height: 468px;
+  height: 481px;
+  width: 285px;
 }
 
 .profile-userpic img {
@@ -28,7 +29,7 @@
 }
 
 .profile-usertitle-name {
-  color: #5a7391;
+  color: white;/*#5a7391;*/
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 7px;
@@ -36,7 +37,7 @@
 
 .profile-usertitle-job {
   text-transform: uppercase;
-  color: #5b9bd1;
+  color: white;/*#5b9bd1;*/
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -72,7 +73,7 @@
 }
 
 .profile-usermenu ul li a {
-  color: #93a3b5;
+  color: white; /*#93a3b5;*/
   font-size: 14px;
   font-weight: 400;
 }
@@ -92,7 +93,7 @@
 }
 
 .profile-usermenu ul li.active a {
-  color: #5b9bd1;
+  color:  #5b9bd1; 
   background-color: #f6f9fb;
   border-left: 2px solid #5b9bd1;
   margin-left: -2px;
@@ -100,15 +101,21 @@
 
 .profile-content {
   padding: 20px;
-  background: lightblue;
+ /* background: lightblue; */
   min-height: 416px;
- /* background-image: url("stuProfile.png"); */
+  background: url("stuProfile.jpg"); 
+  /* background-position: center;  */
+  background-size: contain;
+
 }
 
-/* .form-horizontal .control-label {
+ .form-horizontal .control-label {
   color: white;
-} */
+} 
 
 /*.h4, h4 {
   color: white; 
-} */
+}  */
+.profile-heading {
+  color: white;
+} 

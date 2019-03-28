@@ -62,6 +62,8 @@ class StartCert extends Component {
       `acceptRegistration('${clgAddress}')`);
     window.confirm("You have successfully accepted your Registration by the College");
 
+
+
     /* const { accounts, contract } = this.state;
  
      contract.methods
@@ -217,6 +219,7 @@ class StartCert extends Component {
                         <label>Select a College:</label> &nbsp;
                       <select className="form-control" id="sel1">
                           <option>IIIT</option>
+                          <option>University 101</option>
                           <option>NIT</option>
                           <option>IIM</option>
                         </select>
@@ -248,6 +251,7 @@ class StartCert extends Component {
                       <label>Select a College:</label> &nbsp;
                       <select className="form-control" id="sel1">
                         <option>IIIT</option>
+                        <option>University 101</option>
                         <option>NIT</option>
                         <option>IIM</option>
                       </select>

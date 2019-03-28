@@ -17,6 +17,7 @@ class Upload extends Component {
             account: null
         };
         this.captureFile = this.captureFile.bind(this);
+
         //  this.onSubmit = this.onSubmit.bind(this);
     }
 

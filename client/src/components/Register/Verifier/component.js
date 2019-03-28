@@ -76,7 +76,7 @@ class verifier extends Component {
               </div>
               <br />
               <div className="form-group">
-                <h4>Company Details</h4>
+                <h4 className="name-title">Company Details</h4>
                 <label className="control-label col-sm-2">
                   Company Name
         </label>
@@ -143,7 +143,7 @@ class verifier extends Component {
               </div>
               <br />
               <div className="form-group">
-                <h4>Contact Person Details</h4>
+                <h4 className="name-title">Contact Person Details</h4>
                 <label className="control-label col-sm-2">
                   Company Person Name
         </label>
@@ -198,7 +198,7 @@ class verifier extends Component {
               <br />
 
               <div className="form-group">
-                <h4>Alternative Contact Person Details</h4>
+                <h4 className="name-title">Alternative Contact Person Details</h4>
                 <label className="control-label col-sm-2" >
                   Alternative Contact Person Name
         </label>

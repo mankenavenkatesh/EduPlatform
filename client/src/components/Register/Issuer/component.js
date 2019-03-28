@@ -225,15 +225,15 @@ class issuer extends Component {
               <div className="form-group">
                 <label className="control-label col-sm-2">Institute Type</label>
                 <div className="col-sm-10">
-                  <label className="radio-inline">
+                  <label className="radio-inline name-title">
                     <input type="radio" name="optradio" checked readOnly />
                     University &nbsp; &nbsp;
                   </label>
-                  <label className="radio-inline">
+                  <label className="radio-inline name-title">
                     <input type="radio" name="optradio" />
                     Board &nbsp; &nbsp;
                   </label>
-                  <label className="radio-inline">
+                  <label className="radio-inline name-title">
                     <input type="radio" name="optradio" />
                     Standalone Institute &nbsp; &nbsp;
                   </label>

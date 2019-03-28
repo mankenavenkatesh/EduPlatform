@@ -79,7 +79,7 @@ class StudentProfile extends Component {
                                     id="clgAddress"
                                     name="clgAddress"
                                     placeholder="Enter College Name"
-                                    value="IIIT"
+                                    value="University 101"
                                     readOnly
                                 />
                             </div>

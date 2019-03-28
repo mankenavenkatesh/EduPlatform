@@ -163,6 +163,9 @@ class upperNav extends Component {
               <li>
                 <Link to="/verifier">Verifier Registration</Link>
               </li>
+              <li>
+                <Link to="/verify-certificate">Verify Certificate</Link>
+              </li>
             </ul>
             {!localStorage.getItem('token') ? login : <ul className="nav navbar-nav navbar-right">
               <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" onClick={this.logOut}><span className="glyphicon glyphicon-log-in"></span>&nbsp; LogOut</a>

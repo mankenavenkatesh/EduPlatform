@@ -3,8 +3,16 @@
   margin: 10px;
   padding: 30px;
   border-radius: 25px;
+  background: url("../registration.jpg"); 
+  /* background-position: center;  */
+  background-size: contain;
 }
 
 .h {
   text-align: center;
+  color: white;
+}
+
+.name-title {
+  color: white;
 }
