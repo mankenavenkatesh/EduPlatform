@@ -143,7 +143,7 @@ class upperNav extends Component {
 
     return (
       <div className="upp">
-        <nav>
+        <nav className="navig">
           <div className="container-fluid">
             <div className="navbar-header">
               <a className="navbar-brand">

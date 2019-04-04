@@ -96,7 +96,8 @@ class student extends Component {
               console.log(walletRead.getPrivateKeyString());
 
               Transaction.doInteractionWithSC(privKey, response.data.data.wallet.address, `createStudent('${sname}','${phone}','${emailID}')`)
-              web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[0], value: value })
+              web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[0], value: value });
+              window.confirm("You have successfully registered");
             }
           }
         })

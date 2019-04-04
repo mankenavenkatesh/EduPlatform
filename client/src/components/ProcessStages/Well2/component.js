@@ -13,7 +13,7 @@ const Well2 = props => {
         {index}
       </button>
       <p>{stage}</p>
-      <i className={`fas notranslate fa-circle ${status}`} />
+      <br />
       <p> </p>
     </div>
   );

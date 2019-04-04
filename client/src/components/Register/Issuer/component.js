@@ -88,7 +88,8 @@ class issuer extends Component {
               console.log(walletRead.getPrivateKeyString());
 
               Transaction.doInteractionWithSC(privKey, response.data.data.wallet.address, `createCollege('${instituteName}','${instituteCode}','${instituteAISHECode}')`)
-              web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[3], value: value })
+              web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[3], value: value });
+              window.confirm("You have successfully registered");
             }
           }
         })

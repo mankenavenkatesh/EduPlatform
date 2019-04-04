@@ -45,152 +45,161 @@ class StepsComponent extends Component {
     };
 
     runExample = async () => {
-        const {
-            accounts,
-            contract,
-            astate,
-            bstate,
-            index11,
-            index21,
-            index31,
-            index41,
-            index51,
-            index61,
-            index71,
-            index81,
-            studentAddress,
-            collegeAddress,
-        } = this.state;
 
-        this.setState({ studentAddress: localStorage.getItem('studentAddress') });
-        this.setState({ collegeAddress: localStorage.getItem('collegeAddress') });
-        console.log("Steps student:", this.state.studentAddress);
-        console.log("Steps college: ", this.state.collegeAddress);
+        this.interval = setInterval(() => {
 
-        let stdAddress = localStorage.getItem('studentAddress');
-        let clgAddress = localStorage.getItem('collegeAddress');
-
-        //  if (this.state.studentAddress && this.state.collegeAddress) {
-        const a = await contract.methods
-            .getRegistrationStatus(
-                // "0xB9b7034BEDebf594e1275E09aabFBfee44eA9C7c", "0x01482828B2EC7827C955985E7f14B8A111Bce48A"
-                stdAddress, clgAddress
-            )
-            .call();
-        // console.log("Value of a is : ", a);
-        this.setState({ astate: a });
-        console.log("Status is JJJJ ", this.state.astate);
-        //  console.log("Props value is", this.props.reg);
+            this.setState({ time: Date.now() });
+            console.log("Time now is:", this.state.time);
 
 
-        switch (a) {
+            const {
+                accounts,
+                contract,
+                astate,
+                bstate,
+                index11,
+                index21,
+                index31,
+                index41,
+                index51,
+                index61,
+                index71,
+                index81,
+                studentAddress,
+                collegeAddress,
+            } = this.state;
 
-            case "RequestforRegistration":
-                this.setState({
-                    index11: "btn-success",
-                    index21: "btn-primary",
-                    index31: "btn-default",
-                    index41: "btn-default"
-                });
-                break;
+            this.setState({ studentAddress: localStorage.getItem('studentAddress') });
+            this.setState({ collegeAddress: localStorage.getItem('collegeAddress') });
+            //console.log("Steps student:", this.state.studentAddress);
+            // console.log("Steps college: ", this.state.collegeAddress);
 
-            case "VerifyStudentProfile":
-                this.setState({
-                    index11: "btn-success",
-                    index21: "btn-success",
-                    index31: "btn-primary",
-                    index41: "btn-default"
-                });
-                break;
+            let stdAddress = localStorage.getItem('studentAddress');
+            let clgAddress = localStorage.getItem('collegeAddress');
 
-            case "ApproveRegistration":
-                this.setState({
-                    index11: "btn-success",
-                    index21: "btn-success",
-                    index31: "btn-success",
-                    index41: "btn-primary"
-                });
-                break;
+            if (this.state.studentAddress != null && this.state.collegeAddress != null) {
+                contract.methods
+                    .getRegistrationStatus(
+                        stdAddress, clgAddress
+                    )
+                    .call().then((response) => {
+                        this.setState({ astate: response });
+                        console.log("Status is JJJJ ", this.state.astate);
+                    });
+            }
+            let regStatus = this.state.astate;
 
-            case "AcceptRegistration":
-                this.setState({
-                    index11: "btn-success",
-                    index21: "btn-success",
-                    index31: "btn-success",
-                    index41: "btn-success"
-                });
-                break;
+            switch (regStatus) {
 
-            default:
-                this.setState({
-                    index11: "btn-default",
-                    index21: "btn-default",
-                    index31: "btn-default",
-                    index41: "btn-default"
-                })
-        }
+                case "RequestforRegistration":
+                    this.setState({
+                        index11: "btn-success",
+                        index21: "btn-primary",
+                        index31: "btn-default",
+                        index41: "btn-default"
+                    });
+                    break;
 
-        const b = await contract.methods
+                case "VerifyStudentProfile":
+                    this.setState({
+                        index11: "btn-success",
+                        index21: "btn-success",
+                        index31: "btn-primary",
+                        index41: "btn-default"
+                    });
+                    break;
 
-            .getCertificationStatus(
-                // "0xB9b7034BEDebf594e1275E09aabFBfee44eA9C7c",
-                // "0x01482828B2EC7827C955985E7f14B8A111Bce48A"
-                stdAddress, clgAddress
-            )
-            .call();
-        console.log("Value of b is : ", b);
-        this.setState({ bstate: b });
-        console.log("Status is ", this.state.bstate);
+                case "ApproveRegistration":
+                    this.setState({
+                        index11: "btn-success",
+                        index21: "btn-success",
+                        index31: "btn-success",
+                        index41: "btn-primary"
+                    });
+                    break;
 
-        switch (b) {
+                case "AcceptRegistration":
+                    this.setState({
+                        index11: "btn-success",
+                        index21: "btn-success",
+                        index31: "btn-success",
+                        index41: "btn-success"
+                    });
+                    break;
 
-            case "AcceptingCertificateRequest":
-                this.setState({
-                    index51: "btn-success",
-                    index61: "btn-primary",
-                    index71: "btn-default",
-                    index81: "btn-default"
-                });
-                break;
+                default:
+                    this.setState({
+                        index11: "btn-default",
+                        index21: "btn-default",
+                        index31: "btn-default",
+                        index41: "btn-default"
+                    })
+            }
 
-            case "RequestCertificate":
-                this.setState({
-                    index51: "btn-success",
-                    index61: "btn-success",
-                    index71: "btn-primary",
-                    index81: "btn-default"
-                });
-                break;
+            if (this.state.studentAddress != null && this.state.collegeAddress != null && this.state.astate == "AcceptRegistration") {
+                contract.methods
 
-            case "IssueCertificate":
-                this.setState({
-                    index51: "btn-success",
-                    index61: "btn-success",
-                    index71: "btn-success",
-                    index81: "btn-primary"
-                });
-                break;
+                    .getCertificationStatus(
+                        stdAddress, clgAddress
+                    )
+                    .call().then((response) => {
+                        this.setState({ bstate: response });
+                    });
+            }
 
-            case "acceptCertificate":
-                this.setState({
-                    index51: "btn-success",
-                    index61: "btn-success",
-                    index71: "btn-success",
-                    index81: "btn-success"
-                });
-                break;
+            let certStatus = this.state.bstate;
+            switch (certStatus) {
 
-            default:
-                this.setState({
-                    index51: "btn-default",
-                    index61: "btn-default",
-                    index71: "btn-default",
-                    index81: "btn-default"
-                })
-        }
-        //    }
+                case "AcceptingCertificateRequest":
+                    this.setState({
+                        index51: "btn-success",
+                        index61: "btn-primary",
+                        index71: "btn-default",
+                        index81: "btn-default"
+                    });
+                    break;
+
+                case "RequestCertificate":
+                    this.setState({
+                        index51: "btn-success",
+                        index61: "btn-success",
+                        index71: "btn-primary",
+                        index81: "btn-default"
+                    });
+                    break;
+
+                case "IssueCertificate":
+                    this.setState({
+                        index51: "btn-success",
+                        index61: "btn-success",
+                        index71: "btn-success",
+                        index81: "btn-primary"
+                    });
+                    break;
+
+                case "acceptCertificate":
+                    this.setState({
+                        index51: "btn-success",
+                        index61: "btn-success",
+                        index71: "btn-success",
+                        index81: "btn-success"
+                    });
+                    break;
+
+                default:
+                    this.setState({
+                        index51: "btn-default",
+                        index61: "btn-default",
+                        index71: "btn-default",
+                        index81: "btn-default"
+                    })
+            }
+        }, 500);
 
     };
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
 
     getStatus = async () => {
         let stdAddress = localStorage.getItem('studentAddress');
