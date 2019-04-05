@@ -4,6 +4,7 @@ This repo comes with everything you need to start for education platform using s
 
 ## Setting Up
 
+### Setting up blockchain and deploying smart contracts
 1. Installation
  you can install Truffle globally 
     ```javascript
@@ -23,13 +24,26 @@ This repo comes with everything you need to start for education platform using s
     truffle migrate --reset
     ```
 
+### Running the backend
+
+5. In the `backend` directory, we run the node app. 
+    ```javascript
+    // in another terminal (i.e. not in the truffle develop prompt)
+    cd backend
+    npm install
+    node server.js
+    ```
+
+### Running frontend
 5. In the `client` directory, we run the React app. Smart contract changes must be manually recompiled and migrated.
     ```javascript
     // in another terminal (i.e. not in the truffle develop prompt)
     cd client
+    npm install
     npm run start
     ```
 
+#### Updating Smartcontracts and Testing
 6. Truffle can run tests written in Solidity or JavaScript against your smart contracts.
     ```javascript
     truffle test
