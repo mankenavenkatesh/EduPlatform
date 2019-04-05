@@ -14,6 +14,7 @@ This repo comes with everything you need to start for education platform using s
 2. Clone the repo.
    ```
    git clone https://github.com/mankenavenkatesh/EduPlatform.git
+   git checkout NodeIntegration
    ```
 
 4. Compile and migrate the smart contracts. 
