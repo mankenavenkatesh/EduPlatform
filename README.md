@@ -24,6 +24,8 @@ This repo comes with everything you need to start for education platform using s
     truffle migrate --reset
     ```
 
+### Start IPFS daemon locally.
+
 ### Running the backend
 
 5. In the `backend` directory, we run the node app. 
