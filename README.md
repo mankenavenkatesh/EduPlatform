@@ -25,6 +25,7 @@ This repo comes with everything you need to start for education platform using s
     ```
 
 ### Start IPFS daemon locally.
+https://github.com/mankenavenkatesh/ipfs-file-upload-download
 
 ### Running the backend
 
