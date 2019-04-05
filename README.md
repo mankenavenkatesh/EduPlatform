@@ -41,6 +41,7 @@ This repo comes with everything you need to start for education platform using s
     cd client
     npm install
     npm run start
+    open http://localhost:3000/student
     ```
 
 #### Updating Smartcontracts and Testing
