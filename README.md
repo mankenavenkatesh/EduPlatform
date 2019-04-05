@@ -19,7 +19,7 @@ This repo comes with everything you need to start for education platform using s
 4. Compile and migrate the smart contracts. 
     ```javascript
     truffle compile
-    truffle migrate
+    truffle migrate --reset
     ```
 
 5. In the `client` directory, we run the React app. Smart contract changes must be manually recompiled and migrated.
