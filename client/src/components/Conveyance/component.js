@@ -3,6 +3,7 @@ import Uppernav from "../UpperNav/component";
 import Carousel from "../Carousel/component";
 import Profile from "../Landing/Student/component";
 import StartCert from "../Landing/Student/StartCert/component";
+import StuSteps from "../StuSteps/component";
 import TabBar from "../SectionBar/component";
 import Steps from "../Steps/component";
 import getWeb3 from "../../utils/getWeb3";
@@ -121,54 +122,55 @@ class conveyance extends Component {
     }
 
     return (
-      <div>
+      <div className="main-bg">
         <Uppernav />
-        <Carousel />
+
         <br />
         <br />
         <div className="container">
-          <Profile />
+
 
           <br></br>
+          <h1>Logged in as: Student 101 </h1>
 
           <br />
           <br />
-          <div className="flow">
-            <span className="legend-label">
-              <i className="fas in_complete fa-circle notranslate" />
-              Incomplete
-            </span>
-            <span className="legend-label">
-              <i className="fas in_progress fa-circle notranslate" />
-              In Progress
-            </span>
-            <span className="legend-label">
-              <i className="fas fa-check-circle done notranslate" />
-              Done
-            </span>
-            <span className="legend-label">
-              <i className="fas fa-arrow-alt-circle-right done notranslate" />
-              Automatic
-            </span>
-          </div>
-
-
           <div className="process-title">
             <h2> Process Stages </h2>
+            <br />
+            <div className="flow">
+              <span className="legend-label">
+                <i className="fas in_complete fa-circle notranslate" />
+                Incomplete
+            </span>
+              <span className="legend-label">
+                <i className="fas in_progress fa-circle notranslate" />
+                In Progress
+            </span>
+              <span className="legend-label">
+                <i className="fas fa-check-circle done notranslate" />
+                Done
+            </span>
+              <span className="legend-label">
+                <i className="fas fa-arrow-alt-circle-right done notranslate" />
+                Automatic
+            </span>
+            </div>
+
+            <br />
+
+            <StuSteps />
+
           </div>
 
 
           <br />
           <br />
-          <Steps />
-          <TabBar />
-          <br />
 
-          <StudentProfile />
           <br />
-          <StartCert />
         </div>
       </div>
+
     );
   }
 }

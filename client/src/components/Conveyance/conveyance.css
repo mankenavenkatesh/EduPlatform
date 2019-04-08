@@ -23,6 +23,7 @@
   margin: 10px;
   padding: 10px;
   height: 50px;
+  color: black;
 }
 
 .legend-label {
@@ -146,4 +147,13 @@
 
 .fas .notranslate .done {
   color: green;
+}
+
+.student-profile {
+  background-color:rgb(0,0,51);
+}
+
+.main-bg{
+  background: rgb(0,0,51);
+  color: white;
 }

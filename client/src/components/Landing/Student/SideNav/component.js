@@ -65,7 +65,7 @@ class studSideNav extends Component {
           var len = response.data.length;
           this.setState({ CollegeList: response.data });
           console.log(response.data);
-          console.log(response.data[5].name);
+        //  console.log(response.data[5].name);
           console.log(len);
         }
         else {

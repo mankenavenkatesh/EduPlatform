@@ -1,0 +1,21 @@
+.uni-conveyance{
+    background: url("../App2.png"); 
+    background-repeat: no-repeat;
+  background-size: 20% 1000px;
+  background-position: top right;
+    background-color:  rgb(0,0,51);  
+    z-index:-10;
+}
+
+.uni-overlay{
+    position: 75%;
+    background-color:  rgb(0,0,0,0,51);
+    height: 920px;
+    top:0;
+    bottom: 0;
+    z-index: -5;
+}
+
+.uni-flow{
+    color: white;
+}

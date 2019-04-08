@@ -97,7 +97,7 @@ class student extends Component {
 
               Transaction.doInteractionWithSC(privKey, response.data.data.wallet.address, `createStudent('${sname}','${phone}','${emailID}')`)
               web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[0], value: value });
-              window.confirm("You have successfully registered");
+              window.confirm("You have successfully registered. Please click on Login button to log into your account.");
             }
           }
         })
@@ -105,41 +105,11 @@ class student extends Component {
       console.log('Please Enter Username and Password');
     }
 
-
-
-
-
-
-    /*  const { accounts, contract } = this.state;
-      contract.methods
-        .createStudent(sname, phone, emailID)
-        .send({ from: accounts[0], gas: 330000 })
-        .then(function (result) {
-          console.log(result);
-          window.confirm("You have successfully Registered as Student");
-          var blockData = {
-            transactionHash: result.transactionHash,
-            blocknumber: result.blockNumber,
-            details: "State - Student Created"
-          };
-          this.props.addTransaction(blockData)
-        }.bind(this))
-        .catch(function (e) {
-        })
-        .catch(function (e) {
-          console.log(e);
-        });
-  
-      console.log("Value of sname is ", sname); */
-
   };
   /* ############# SmartContract Interaction Ends ############# */
 
   handleInputChange = event => {
     event.preventDefault();
-    console.log(event);
-    console.log(event.target.name);
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value
       //  sname: event.target.value
@@ -213,49 +183,6 @@ class student extends Component {
                 />
               </div>
               <br />
-
-              <div className="input-group">
-                <span className="input-group-addon">
-                  <i className="glyphicon glyphicon-education" />
-                </span>
-                <input
-                  id="regNo"
-                  type="text"
-                  className="form-control"
-                  name="regNo"
-                  placeholder="Undergraduation Registration Number"
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <br />
-              <div className="input-group">
-                <span className="input-group-addon">
-                  <i className="glyphicon glyphicon-education" />
-                </span>
-                <input
-                  id="yearOfJoining"
-                  type="text"
-                  className="form-control"
-                  name="yearOfJoining"
-                  placeholder="Year of Joining"
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <br />
-              <div className="input-group">
-                <span className="input-group-addon">
-                  <i className="glyphicon glyphicon-education" />
-                </span>
-                <input
-                  id="yearOfPassing"
-                  type="text"
-                  className="form-control"
-                  name="yearOfPassing"
-                  placeholder="Year of Passing"
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <br></br>
               <div className="input-group">
                 <span className="input-group-addon">
                   <i className="glyphicon glyphicon-education" />

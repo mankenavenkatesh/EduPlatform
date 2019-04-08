@@ -10,7 +10,8 @@ import Pr from "../src/components/ProcessStages/component";
 import iTest from "../src/components/Certificate/UploadC/component";
 import BlockExplorer from "../src/components/BlockExplorer/component";
 import verifyCertificate from "../src/components/VerifyCertificate/component";
-
+import UniProfile from "../src/components/University/component";
+import UniConveyance from "../src/components/University/UniConveyance/component";
 import "./App.css";
 
 const auth = {
@@ -67,11 +68,22 @@ class App extends Component {
               <Conveyance role={this.state.role} />
             } />
             <PrivateRoute path="/issuerprocess" component={() =>
+              <UniProfile role={this.state.role} />
+
+
+            } />
+            <PrivateRoute path="/issuerprocess" component={() =>
               <Pr role={this.state.role} />
+
+            } />
+            <PrivateRoute path="/uni-profile" component={() =>
+              <UniProfile role={this.state.role} />
+            } />
+            <PrivateRoute path="/uni-conveyance" component={() =>
+              <UniConveyance role={this.state.role} />
             } />
 
             <Route exact path="/ipfsTest" component={iTest} />
-            <Route path="/" component={BlockExplorer} />
           </div>
         </BrowserRouter>
 

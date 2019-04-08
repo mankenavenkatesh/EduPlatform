@@ -6,7 +6,7 @@
 /* Profile sidebar */
 .profile-sidebar {
   padding: 20px 0 10px 0;
-  background:#1e2269;/*lightblue;*/
+  background:rgb(0,0,51);/*lightblue;*/
   /*height: 60px; */
   height: 481px;
   width: 285px;

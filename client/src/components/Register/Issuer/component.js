@@ -89,34 +89,13 @@ class issuer extends Component {
 
               Transaction.doInteractionWithSC(privKey, response.data.data.wallet.address, `createCollege('${instituteName}','${instituteCode}','${instituteAISHECode}')`)
               web3.eth.sendTransaction({ to: response.data.data.wallet.address, from: accounts[3], value: value });
-              window.confirm("You have successfully registered");
+              window.confirm("You have successfully registered. Please click on Login button to log into your account.");
             }
           }
         })
     } else {
       console.log('Please Enter Username and Password');
     }
-
-
-    /* const { accounts, contract } = this.state;
-     contract.methods
-       .createCollege(instituteName, instituteCode, instituteAISHECode)
-       .send({ from: accounts[1], gas: 330000 })
-       .then(function (result) {
-         console.log(result);
-         window.confirm("You have successfully Registered as Educational Institute");
-         var blockData = {
-           transactionHash: result.transactionHash,
-           blocknumber: result.blockNumber,
-           details: "State - College Created"
-         };
-         this.props.addTransaction(blockData)
-       }.bind(this))
-       .catch(function (e) {
-       })
-       .catch(function (e) {
-         console.log(e);
-       });  */
 
 
   };
@@ -250,7 +229,7 @@ class issuer extends Component {
                     type="text"
                     className="form-control"
                     id="name"
-                    placeholder="Enter Company Name"
+                    placeholder="Enter Date of Establishment"
                   />
                 </div>
               </div>
@@ -264,7 +243,7 @@ class issuer extends Component {
                     type="text"
                     className="form-control"
                     id="name"
-                    placeholder="Enter Company Name"
+                    placeholder="Enter Past Name of the Institution"
                   />
                 </div>
               </div>
@@ -278,7 +257,7 @@ class issuer extends Component {
                     type="text"
                     className="form-control"
                     id="name"
-                    placeholder="Enter Company Name"
+                    placeholder="Enter Past Name of the Institution Valid till Date"
 
                   />
                 </div>

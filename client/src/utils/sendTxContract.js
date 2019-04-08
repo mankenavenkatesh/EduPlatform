@@ -1,11 +1,20 @@
+//import RegistrationAndCertificateContractFactory from "../contracts/RegistrationAndCertificateContractFactory.json";
+
 const Web3 = require('web3');
 const EthereumTx = require('ethereumjs-tx');
+var RegistrationAndCertificateContractFactory = require('../contracts/RegistrationAndCertificateContractFactory.json');
+
+
 
 var web3 = new Web3();
 web3.setProvider(new web3.providers.HttpProvider('http://localhost:7545'));
+var networkId = web3.eth.net.getId();
+
+
 
 let param = {
-  abi: `[
+  abi: RegistrationAndCertificateContractFactory.abi,
+  /*abi: `[
     {
       "constant": true,
       "inputs": [
@@ -23,7 +32,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x9e5c196c"
     },
     {
       "constant": true,
@@ -37,7 +47,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0xacbe8cee"
     },
     {
       "constant": true,
@@ -51,7 +62,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0xed2483aa"
     },
     {
       "constant": true,
@@ -65,7 +77,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x9776fb4c"
     },
     {
       "constant": true,
@@ -79,7 +92,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0xa3025078"
     },
     {
       "constant": true,
@@ -101,7 +115,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x5fd7b16a"
     },
     {
       "constant": true,
@@ -123,7 +138,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0xe37bdb00"
     },
     {
       "constant": true,
@@ -146,7 +162,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0xc79a9745"
     },
     {
       "constant": true,
@@ -169,7 +186,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x2df89cd3"
     },
     {
       "constant": false,
@@ -191,7 +209,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xc12b577b"
     },
     {
       "constant": false,
@@ -213,7 +232,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x85870a6f"
     },
     {
       "constant": false,
@@ -243,7 +263,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xb7c2d050"
     },
     {
       "constant": false,
@@ -257,7 +278,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x18014d15"
     },
     {
       "constant": false,
@@ -271,7 +293,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x5179fc49"
     },
     {
       "constant": false,
@@ -285,7 +308,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xb204e9f3"
     },
     {
       "constant": true,
@@ -308,7 +332,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x95d3113a"
     },
     {
       "constant": true,
@@ -331,7 +356,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x92f0a140"
     },
     {
       "constant": false,
@@ -345,7 +371,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x79554453"
     },
     {
       "constant": false,
@@ -359,21 +386,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_studentAddress",
-          "type": "address"
-        }
-      ],
-      "name": "issueCertification",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xb08ab8ea"
     },
     {
       "constant": false,
@@ -391,11 +405,12 @@ let param = {
           "type": "string"
         }
       ],
-      "name": "addHash",
+      "name": "issueCertification",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0x3bd3ca35"
     },
     {
       "constant": true,
@@ -418,7 +433,8 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0xf8cc1850"
     },
     {
       "constant": false,
@@ -432,7 +448,8 @@ let param = {
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
+      "type": "function",
+      "signature": "0xcf14ae64"
     },
     {
       "constant": true,
@@ -451,9 +468,10 @@ let param = {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "signature": "0x62efca38"
     }
-  ]`,
+  ]` , */
   contractAddress: '0xE527345B8ba8aCa4440EE3723c6A61ad1C087d66',
   encodedCall: "instance.methods." + 'createStudent("saru",123,"saru@gmail.com")' + ".encodeABI()"
 }

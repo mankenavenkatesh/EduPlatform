@@ -1,0 +1,17 @@
+.uni-profile {
+    background-color: rgb(0,0,51);
+    font-family: 'Questrial';
+    font: 'Questrial';
+    color: aquamarine;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: null;
+    height: 1000px;
+
+}
+
+.container {
+   /* flex: 1; */
+    
+}

@@ -6,7 +6,7 @@ import RegistrationAndCertificateContractFactory from "../../../contracts/Regist
 const Wallet = require('ethereumjs-wallet');
 const Transaction = require('../../../utils/sendTxContract');
 
-class Upload extends Component {
+class UploadCertificate extends Component {
     constructor(props) {
         super(props);
 
@@ -17,8 +17,6 @@ class Upload extends Component {
             account: null
         };
         this.captureFile = this.captureFile.bind(this);
-
-        //  this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount = async () => {
@@ -63,7 +61,6 @@ class Upload extends Component {
     addCertificate = event => {
         let stdAddress = localStorage.getItem('studentAddress');
         event.preventDefault();
-        //var stdAddress = "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6";
         let wallet = JSON.parse(localStorage.getItem('wallet'));
         let password = localStorage.getItem('password');
         let walletRead = Wallet.fromV3(wallet, password)
@@ -85,14 +82,11 @@ class Upload extends Component {
         const a = contract.methods
             .getHash(
                 stdAddress, clgAddress
-                // "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
-                // "0x5446640647e082be1c7003A467C09dc8eA5A0532"
             )
             .call().then((response) => {
                 console.log(response);
                 this.setState({ ipfsHash: response });
             })
-        // console.log("Value of a is : ", a);
 
         console.log("Status is ", this.state.ipfsHash);
     }
@@ -117,80 +111,56 @@ class Upload extends Component {
         console.log(walletRead.getPrivateKeyString());
         const { web3, accounts, contract } = this.state;
         Transaction.doInteractionWithSC(privKey, wallet.address,
-            `issueCertification('${stdAddress}',1,'${this.state.ipfsHash})`);
+            `issueCertification('${stdAddress}')`);
         window.confirm("You have successfully uploaded the Certificate");
-
-
-        // Transaction.doInteractionWithSC(privKey, wallet.address, `addHash('${stdAddress}',1,'${this.state.ipfsHash}')`);
-        // console.log("IPFS Added");
-
-        //var hash = Transaction.doInteractionWithSC(privKey,wallet.address,`getCertificateHash`)
-
-
-        /* Storing IPFS Hash in Smart Contract */
-
-
-        /*const { accounts, contract } = this.state;
-
-        contract.methods
-            .setCertificate(accounts[0])
-            .send({ from: accounts[1], gas: 330000 })
-            .then(function (result) {
-                console.log(result);
-                window.confirm("You have successfully uploaded the Certificate");
-            })
-            .catch(function (e) {
-                console.log(e);
-            });  */
     };
-
-    /* onSubmit(event) {
-         event.preventDefault();
-         ipfs.add(this.state.buffer, (error, result) => {
-             if (error) {
-                 console.error(error);
-                 return;
-             }
-             this.setState({ ipfsHash: result[0].hash });
-             console.log("ipfsHash", this.state.ipfsHash);
-         });
-     } */
     render() {
         return (
             <div>
-                <h2>Upload Certificate</h2>
-                <form>
+                <div className="form-group">
+                    <label className="control-label col-sm-2">Upload Certificate: </label>
+                    <div className="col-sm-4">
+                        <input type="file" onChange={this.captureFile} />
+                        <br />
+                        <button onClick={this.issueCertificate} className="btn btn-primary" {...this.props.upload}> Upload Certificate</button>
+                        &nbsp; &nbsp;
+                        <button onClick={this.addCertificate} className="btn btn-primary" {...this.props.view}> Add Certificate </button>
+                        &nbsp; &nbsp;
+                        <button className="btn btn-primary" {...this.props.view} onClick={this.getHash} data-toggle="modal" data-target="#myModal" > View </button>
 
-                    <div className="form-group">
-                        <input type="file" className="form-control col-sm-4" onChange={this.captureFile} />
-                        <button onClick={this.issueCertificate}> Upload Certificate </button>
-                    </div>
-                    <div className="form-group">
-                        <button onClick={this.addCertificate}> Add Certificate </button>
-                    </div>
 
-                    <div className="form-group">
-                        <div className="col-sm-offset-2 ">
-                            <button
-                                type="submit"
-                                className="btn btn-primary"
-                                onClick={this.getHash}
-                            >
-                                View Certificate
-                            </button>
-                            <p>This image is stored on IPFS & The Ethereum Blockchain!</p>
-                            <img
-                                src={`http://127.0.0.1:8080/ipfs/${this.state.ipfsHash}`}
-                                alt="Image Loads Here"
-                            />
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">View Certificate</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img
+                                            src={`http://127.0.0.1:8080/ipfs/${this.state.ipfsHash}`}
+                                            alt="Image Loads Here"
+                                        />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
+
+
+
+
+
                     </div>
-                </form>
-
-
-            </div>
+                </div>
+            </div >
         );
     }
 }
 
-export default Upload;
+export default UploadCertificate;

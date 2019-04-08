@@ -88,7 +88,7 @@ class upperNav extends Component {
     if (this.props.token || this.state.token) {
       console.log(this.props.role);
       if (this.props.role == 'university' || this.state.role == 'university') {
-        window.location.pathname = '/issuerprocess';
+        window.location.pathname = '/uni-profile';
       }
       else {
         window.location.pathname = '/studentprocess';

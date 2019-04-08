@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import getWeb3 from "../../../../utils/getWeb3";
 import "./contractInteraction";
 import ipfs from "../../../ProcessStages/Upload/ipfs";
+import "./style.css";
 import RegistrationAndCertificateContractFactory from "../../../../contracts/RegistrationAndCertificateContractFactory.json";
 
 const Wallet = require('ethereumjs-wallet');
@@ -61,21 +62,6 @@ class StartCert extends Component {
     Transaction.doInteractionWithSC(privKey, wallet.address,
       `acceptRegistration('${clgAddress}')`);
     window.confirm("You have successfully accepted your Registration by the College");
-
-
-
-    /* const { accounts, contract } = this.state;
- 
-     contract.methods
-       .acceptRegistration(accounts[1])
-       .send({ from: accounts[0], gas: 330000 })
-       .then(function (result) {
-         console.log(result);
-         window.confirm("You have successfully accepted your Registration by the College");
-       })
-       .catch(function (e) {
-         console.log(e);
-       }); */
   };
 
   startCertification = event => {
@@ -93,19 +79,6 @@ class StartCert extends Component {
 
     window.confirm("Your request for Certificate has been initiated");
 
-
-
-    /* const { accounts, contract } = this.state;
-     contract.methods
-       .startCertification(accounts[1])
-       .send({ from: accounts[0], gas: 1330000 })
-       .then(function (result) {
-         console.log(result);
-         window.confirm("Your request for Certificate has been initiated");
-       })
-       .catch(function (e) {
-         console.log(e);
-       }); */
   };
 
   requestCertification = event => {
@@ -119,27 +92,16 @@ class StartCert extends Component {
     console.log(walletRead.getPrivateKeyString());
     const { web3, accounts, contract } = this.state;
     Transaction.doInteractionWithSC(privKey, wallet.address,
-      `reqCertification('${clgAddress}')`);
+      `startCertification('${clgAddress}')`);
+    /*Transaction.doInteractionWithSC(privKey, wallet.address,
+      `reqCertification('${clgAddress}')`); */
     window.confirm("You have successfully requested the College for Certification");
 
-    /* const { accounts, contract } = this.state;
-     contract.methods
-       .reqCertification(accounts[1])
-       .send({ from: accounts[0], gas: 330000 })
-       .then(function (result) {
-         console.log(result);
-         window.confirm("You have successfully requested the College for Certification");
-       })
-       .catch(function (e) {
-         console.log(e);
-       }); */
   };
 
   acceptCertification = event => {
     let clgAddress = localStorage.getItem('collegeAddress');
     event.preventDefault();
-
-    // var clgAddress = "0x5446640647e082be1c7003A467C09dc8eA5A0532";
 
     let wallet = JSON.parse(localStorage.getItem('wallet'));
     let password = localStorage.getItem('password');
@@ -152,25 +114,7 @@ class StartCert extends Component {
     window.confirm("You have successfully accepted the Certificate given by the College");
 
 
-    /*  const a = await contract.methods
-        .getHash(
-          "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6")
-        .call();
-      // console.log("Value of a is : ", a);
-      this.setState({ ipfsHash: a });
-      console.log("Status is ", this.state.ipfsHash);
-  
-      /* const { accounts, contract } = this.state;
-       contract.methods
-         .acceptCertification(accounts[1])
-         .send({ from: accounts[0], gas: 330000 })
-         .then(function (result) {
-           console.log(result);
-           window.confirm("You have successfully accepted the Certificate given by the College");
-         })
-         .catch(function (e) {
-           console.log(e);
-         }); */
+
   };
 
   getCertHash = event => {
@@ -181,8 +125,6 @@ class StartCert extends Component {
     const a = contract.methods
       .getHash(
         stdAddress, clgAddress
-        // "0x7cda55A222b72281eb5214d0Cfa154cfac0782e6",
-        // "0x5446640647e082be1c7003A467C09dc8eA5A0532"
       )
       .call().then((response) => {
         console.log(response);
@@ -195,15 +137,16 @@ class StartCert extends Component {
 
   render() {
     return (
-      <div>
+      <div className='modals-group'>
         <div className="modal-1">
-          <button type="button" className="btn btn-info btn-lg" onClick={this.acceptRegsitration}>Accept Registration</button>
+          <button type="button" className="btn btn-info btn-lg" {...this.props.acceptReg}
+
+            onClick={this.acceptRegsitration}>Accept Registration</button>
           &nbsp; &nbsp;
-          <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Start Certification</button>
           &nbsp; &nbsp;
-          <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Request Certification</button>
+          <button type="button"  {...this.props.startCert} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Start Certification Request</button>
           &nbsp; &nbsp;
-          <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Accept Certification</button>
+          <button type="button" {...this.props.acceptCert} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Accept Certification</button>
           <div className="modal fade" id="myModal1" role="dialog">
             <div className="modal-dialog">
               <div className="modal-content">

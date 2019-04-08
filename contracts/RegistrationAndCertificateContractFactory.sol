@@ -77,7 +77,9 @@ contract RegistrationAndCertificateContractFactory {
         return(studentAddress,collegeAddress);
 
     }
-
+    /*function getSample(string memory _value) public view returns(string memory){
+         return(_value);
+     }  */
     /*function getRegisteredStudentData(address _studentAddress) public view returns(string memory,string memory,uint,uint){
         
     }  */
@@ -165,6 +167,10 @@ contract RegistrationAndCertificateContractFactory {
     
         collegesInfo[_collegeAddress].certificationContracts.push(address(certContract));
         collegesInfo[_collegeAddress].certificateContractsByStudent[msg.sender] = address(certContract);
+
+        // reqCertification
+        address regContract = studentsInfo[msg.sender].registrationContractByCollege[_collegeAddress];
+        certContract.requestCertification(_collegeAddress,regContract);
     }
     
     function reqCertification(address _collegeAddress) public{
@@ -173,15 +179,18 @@ contract RegistrationAndCertificateContractFactory {
         certContract.requestCertification(_collegeAddress,regContract);
         
     }
-    function issueCertification(address _studentAddress) public{
+    function issueCertification(address _studentAddress /*, uint _certid, string memory _certContent*/) public{
         CertificateContract certContract = CertificateContract(collegesInfo[msg.sender].certificateContractsByStudent[_studentAddress]);
-        certContract.issueCertificate();   
+        certContract.issueCertificate();  
+        
+        // Add Hash
+       // certContract.setCertificate(_certid,_certContent); 
     }
 
     function addHash(address _studentAddress,uint _certid, string memory _certContent) public {
         CertificateContract certContract = CertificateContract(collegesInfo[msg.sender].certificateContractsByStudent[_studentAddress]);
         certContract.setCertificate(_certid,_certContent);
-    }
+    } 
 
 
     function getHash(address studentAddress, address collegeAddress) public view returns (string memory) {

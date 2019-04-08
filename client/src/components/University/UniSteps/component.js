@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Well2 from "../../components/ProcessStages/Well2/component";
-import getWeb3 from "../../utils/getWeb3";
-import RegistrationAndCertificateContractFactory from "../../contracts/RegistrationAndCertificateContractFactory.json";
+import OneStep from "../UniSteps/OneStep/component.js";
+import StudentData from "../StudentData/component.js";
+import UploadCertificate from "../UploadCertificate/component.js";
+import getWeb3 from "../../../utils/getWeb3";
+import RegistrationAndCertificateContractFactory from "../../../contracts/RegistrationAndCertificateContractFactory.json";
 
 const Wallet = require('ethereumjs-wallet');
-const Transaction = require('../../utils/sendTxContract');
+const Transaction = require('../../../utils/sendTxContract');
 
-class StepsComponent extends Component {
+class UniSteps extends Component {
     constructor(props) {
         super(props);
         this.state = {
             studentAddress: null,
             collegeAddress: null,
+            allowUpload: true,
+            verify: "disabled",
+            approve: "disabled",
+            upload: "disabled",
+            view: "disabled"
         };
     }
     componentDidMount = async () => {
@@ -67,6 +74,8 @@ class StepsComponent extends Component {
                 index81,
                 studentAddress,
                 collegeAddress,
+                nextAction,
+                //  allowUpload = ".disabled",
             } = this.state;
 
             this.setState({ studentAddress: localStorage.getItem('studentAddress') });
@@ -96,7 +105,13 @@ class StepsComponent extends Component {
                         index11: "btn-success",
                         index21: "btn-primary",
                         index31: "btn-default",
-                        index41: "btn-default"
+                        index41: "btn-default",
+                        nextAction: "Please Verify the Student's Profile",
+                        verify: "",
+                        approve: "disabled",
+                        upload: "disabled",
+                        view: "disabled"
+
                     });
                     break;
 
@@ -105,7 +120,12 @@ class StepsComponent extends Component {
                         index11: "btn-success",
                         index21: "btn-success",
                         index31: "btn-primary",
-                        index41: "btn-default"
+                        index41: "btn-default",
+                        nextAction: "Please Approve the Student's Profile",
+                        verify: "disabled",
+                        approve: "disabled",
+                        upload: "disabled",
+                        view: "disabled"
                     });
                     break;
 
@@ -114,7 +134,12 @@ class StepsComponent extends Component {
                         index11: "btn-success",
                         index21: "btn-success",
                         index31: "btn-success",
-                        index41: "btn-primary"
+                        index41: "btn-primary",
+                        nextAction: "No Action Pending. Student is yet to accept the Registration",
+                        verify: "disabled",
+                        approve: "disabled",
+                        upload: "disabled",
+                        view: "disabled"
                     });
                     break;
 
@@ -123,7 +148,12 @@ class StepsComponent extends Component {
                         index11: "btn-success",
                         index21: "btn-success",
                         index31: "btn-success",
-                        index41: "btn-success"
+                        index41: "btn-success",
+                        nextAction: "No Pending Action. You are open to accept Certificate Request",
+                        verify: "disabled",
+                        approve: "disabled",
+                        upload: "disabled",
+                        view: "disabled"
                     });
                     break;
 
@@ -132,7 +162,12 @@ class StepsComponent extends Component {
                         index11: "btn-default",
                         index21: "btn-default",
                         index31: "btn-default",
-                        index41: "btn-default"
+                        index41: "btn-default",
+                        nextAction: "No Pending Actions",
+                        verify: "disabled",
+                        approve: "disabled",
+                        upload: "disabled",
+                        view: "disabled"
                     })
             }
 
@@ -155,7 +190,13 @@ class StepsComponent extends Component {
                         index51: "btn-success",
                         index61: "btn-primary",
                         index71: "btn-default",
-                        index81: "btn-default"
+                        index81: "btn-default",
+                        nextAction: "Please Issue the required certificate to the student",
+                        verify: "true",
+                        approve: "true",
+                        upload: "true",
+                        view: "true"
+
                     });
                     break;
 
@@ -164,7 +205,12 @@ class StepsComponent extends Component {
                         index51: "btn-success",
                         index61: "btn-success",
                         index71: "btn-primary",
-                        index81: "btn-default"
+                        index81: "btn-default",
+                        nextAction: "Please Issue the required certificate to the student",
+                        verify: "disabled",
+                        approve: "disabled",
+                        upload: "",
+                        view: ""
                     });
                     break;
 
@@ -173,7 +219,12 @@ class StepsComponent extends Component {
                         index51: "btn-success",
                         index61: "btn-success",
                         index71: "btn-success",
-                        index81: "btn-primary"
+                        index81: "btn-primary",
+                        nextAction: "No Pending Action. Student has to accept the certification",
+                        verify: "disabled",
+                        approve: "disabled",
+                        upload: "disabled",
+                        view: "disabled"
                     });
                     break;
 
@@ -182,7 +233,12 @@ class StepsComponent extends Component {
                         index51: "btn-success",
                         index61: "btn-success",
                         index71: "btn-success",
-                        index81: "btn-success"
+                        index81: "btn-success",
+                        nextAction: "No Pending Action",
+                        verify: "true",
+                        approve: "true",
+                        upload: "true",
+                        view: "true"
                     });
                     break;
 
@@ -191,7 +247,11 @@ class StepsComponent extends Component {
                         index51: "btn-default",
                         index61: "btn-default",
                         index71: "btn-default",
-                        index81: "btn-default"
+                        index81: "btn-default",
+                        verify: "true",
+                        approve: "true",
+                        upload: "true",
+                        view: "true"
                     })
             }
         }, 500);
@@ -209,13 +269,11 @@ class StepsComponent extends Component {
         const { web3, accounts, contract } = this.state;
         const a = await contract.methods
             .getRegistrationStatus(
-                // "0xB9b7034BEDebf594e1275E09aabFBfee44eA9C7c", "0x01482828B2EC7827C955985E7f14B8A111Bce48A"
                 stdAddress, clgAddress
             )
             .call();
         this.setState({ astate: a });
-        // console.log("Status is JJJJ ", this.state.astate);
-        // console.log("Value of a is : ", a);
+
 
 
     };
@@ -248,60 +306,72 @@ class StepsComponent extends Component {
             <div className="container">
                 <div className="stepwizard">
                     <div className="stepwizard-row">
-                        <Well2
+                        <OneStep
                             stage={stage1}
                             index={index1}
                             status={this.state.index11}
                             stage_color="default"
                         />
-                        <Well2
+                        <OneStep
                             stage={stage2}
                             index={index2}
                             status={this.state.index21}
                             stage_color="default"
                         />
-                        <Well2
+                        <OneStep
                             stage={stage3}
                             index={index3}
                             status={this.state.index31}
                             stage_color="default"
                         />
-                        <Well2
+                        <OneStep
                             stage={stage4}
                             index={index4}
                             status={this.state.index41}
                             stage_color="default"
                         />
-                        <Well2
+                        <OneStep
                             stage={stage5}
                             index={index5}
                             status={this.state.index51}
                             stage_color="default"
                         />
 
-                        <Well2
+                        <OneStep
                             stage={stage7}
                             index={index7}
                             status={this.state.index71}
                             stage_color="default"
                         />
-                        <Well2
+                        <OneStep
                             stage={stage8}
                             index={index8}
                             status={this.state.index81}
                             stage_color="default"
                         />
                     </div>
+
                 </div>
+                <br />
+                <div className="next-action">
+                    <h3> Next Action : &nbsp; {this.state.nextAction}</h3>
+                </div>
+
+                <StudentData verify={this.state.verify} approve={this.state.approve} />
+                <br />
+                <UploadCertificate upload={this.state.upload} view={this.state.view} />
 
             </div>
         );
     }
 }
 
-StepsComponent.propTypes = {
+UniSteps.propTypes = {
     studentAddress: PropTypes.string,
     collegeAddress: PropTypes.string,
-    //  reg: PropTypes.string
+    verify: PropTypes.string,
+    approve: PropTypes.string,
+    upload: PropTypes.string,
+    view: PropTypes.string,
 }
-export default StepsComponent;
+export default UniSteps;
