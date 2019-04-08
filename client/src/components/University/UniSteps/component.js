@@ -95,80 +95,81 @@ class UniSteps extends Component {
                         this.setState({ astate: response });
                         //   console.log("Status is JJJJ ", this.state.astate);
                     });
-            }
-            let regStatus = this.state.astate;
 
-            switch (regStatus) {
+                let regStatus = this.state.astate;
 
-                case "RequestforRegistration":
-                    this.setState({
-                        index11: "btn-success",
-                        index21: "btn-primary",
-                        index31: "btn-default",
-                        index41: "btn-default",
-                        nextAction: "Please Verify the Student's Profile",
-                        verify: "",
-                        approve: "disabled",
-                        upload: "disabled",
-                        view: "disabled"
+                switch (regStatus) {
 
-                    });
-                    break;
+                    case "RequestforRegistration":
+                        this.setState({
+                            index11: "btn-success",
+                            index21: "btn-primary",
+                            index31: "btn-default",
+                            index41: "btn-default",
+                            nextAction: "Please Verify the Student's Profile",
+                            verify: "",
+                            approve: "disabled",
+                            upload: "disabled",
+                            view: "disabled"
 
-                case "VerifyStudentProfile":
-                    this.setState({
-                        index11: "btn-success",
-                        index21: "btn-success",
-                        index31: "btn-primary",
-                        index41: "btn-default",
-                        nextAction: "Please Approve the Student's Profile",
-                        verify: "disabled",
-                        approve: "disabled",
-                        upload: "disabled",
-                        view: "disabled"
-                    });
-                    break;
+                        });
+                        break;
 
-                case "ApproveRegistration":
-                    this.setState({
-                        index11: "btn-success",
-                        index21: "btn-success",
-                        index31: "btn-success",
-                        index41: "btn-primary",
-                        nextAction: "No Action Pending. Student is yet to accept the Registration",
-                        verify: "disabled",
-                        approve: "disabled",
-                        upload: "disabled",
-                        view: "disabled"
-                    });
-                    break;
+                    case "VerifyStudentProfile":
+                        this.setState({
+                            index11: "btn-success",
+                            index21: "btn-success",
+                            index31: "btn-primary",
+                            index41: "btn-default",
+                            nextAction: "Please Approve the Student's Profile",
+                            verify: "disabled",
+                            approve: "",
+                            upload: "disabled",
+                            view: "disabled"
+                        });
+                        break;
 
-                case "AcceptRegistration":
-                    this.setState({
-                        index11: "btn-success",
-                        index21: "btn-success",
-                        index31: "btn-success",
-                        index41: "btn-success",
-                        nextAction: "No Pending Action. You are open to accept Certificate Request",
-                        verify: "disabled",
-                        approve: "disabled",
-                        upload: "disabled",
-                        view: "disabled"
-                    });
-                    break;
+                    case "ApproveRegistration":
+                        this.setState({
+                            index11: "btn-success",
+                            index21: "btn-success",
+                            index31: "btn-success",
+                            index41: "btn-primary",
+                            nextAction: "No Action Pending. Student is yet to accept the Registration",
+                            verify: "disabled",
+                            approve: "disabled",
+                            upload: "disabled",
+                            view: "disabled"
+                        });
+                        break;
 
-                default:
-                    this.setState({
-                        index11: "btn-default",
-                        index21: "btn-default",
-                        index31: "btn-default",
-                        index41: "btn-default",
-                        nextAction: "No Pending Actions",
-                        verify: "disabled",
-                        approve: "disabled",
-                        upload: "disabled",
-                        view: "disabled"
-                    })
+                    case "AcceptRegistration":
+                        this.setState({
+                            index11: "btn-success",
+                            index21: "btn-success",
+                            index31: "btn-success",
+                            index41: "btn-success",
+                            nextAction: "No Pending Action. You are open to accept Certificate Request",
+                            verify: "disabled",
+                            approve: "disabled",
+                            upload: "disabled",
+                            view: "disabled"
+                        });
+                        break;
+
+                    default:
+                        this.setState({
+                            index11: "btn-default",
+                            index21: "btn-default",
+                            index31: "btn-default",
+                            index41: "btn-default",
+                            nextAction: "No Pending Actions",
+                            verify: "disabled",
+                            approve: "disabled",
+                            upload: "disabled",
+                            view: "disabled"
+                        })
+                }
             }
 
             if (this.state.studentAddress != null && this.state.collegeAddress != null && this.state.astate == "AcceptRegistration") {
@@ -180,79 +181,80 @@ class UniSteps extends Component {
                     .call().then((response) => {
                         this.setState({ bstate: response });
                     });
-            }
 
-            let certStatus = this.state.bstate;
-            switch (certStatus) {
 
-                case "AcceptingCertificateRequest":
-                    this.setState({
-                        index51: "btn-success",
-                        index61: "btn-primary",
-                        index71: "btn-default",
-                        index81: "btn-default",
-                        nextAction: "Please Issue the required certificate to the student",
-                        verify: "true",
-                        approve: "true",
-                        upload: "true",
-                        view: "true"
+                let certStatus = this.state.bstate;
+                switch (certStatus) {
 
-                    });
-                    break;
+                    case "AcceptingCertificateRequest":
+                        this.setState({
+                            index51: "btn-success",
+                            index61: "btn-primary",
+                            index71: "btn-default",
+                            index81: "btn-default",
+                            nextAction: "Please Issue the required certificate to the student",
+                            verify: "true",
+                            approve: "true",
+                            upload: "true",
+                            view: "true"
 
-                case "RequestCertificate":
-                    this.setState({
-                        index51: "btn-success",
-                        index61: "btn-success",
-                        index71: "btn-primary",
-                        index81: "btn-default",
-                        nextAction: "Please Issue the required certificate to the student",
-                        verify: "disabled",
-                        approve: "disabled",
-                        upload: "",
-                        view: ""
-                    });
-                    break;
+                        });
+                        break;
 
-                case "IssueCertificate":
-                    this.setState({
-                        index51: "btn-success",
-                        index61: "btn-success",
-                        index71: "btn-success",
-                        index81: "btn-primary",
-                        nextAction: "No Pending Action. Student has to accept the certification",
-                        verify: "disabled",
-                        approve: "disabled",
-                        upload: "disabled",
-                        view: "disabled"
-                    });
-                    break;
+                    case "RequestCertificate":
+                        this.setState({
+                            index51: "btn-success",
+                            index61: "btn-success",
+                            index71: "btn-primary",
+                            index81: "btn-default",
+                            nextAction: "Please Issue the required certificate to the student",
+                            verify: "disabled",
+                            approve: "disabled",
+                            upload: "",
+                            view: ""
+                        });
+                        break;
 
-                case "acceptCertificate":
-                    this.setState({
-                        index51: "btn-success",
-                        index61: "btn-success",
-                        index71: "btn-success",
-                        index81: "btn-success",
-                        nextAction: "No Pending Action",
-                        verify: "true",
-                        approve: "true",
-                        upload: "true",
-                        view: "true"
-                    });
-                    break;
+                    case "IssueCertificate":
+                        this.setState({
+                            index51: "btn-success",
+                            index61: "btn-success",
+                            index71: "btn-success",
+                            index81: "btn-primary",
+                            nextAction: "No Pending Action. Student has to accept the certification",
+                            verify: "disabled",
+                            approve: "disabled",
+                            upload: "disabled",
+                            view: "disabled"
+                        });
+                        break;
 
-                default:
-                    this.setState({
-                        index51: "btn-default",
-                        index61: "btn-default",
-                        index71: "btn-default",
-                        index81: "btn-default",
-                        verify: "true",
-                        approve: "true",
-                        upload: "true",
-                        view: "true"
-                    })
+                    case "acceptCertificate":
+                        this.setState({
+                            index51: "btn-success",
+                            index61: "btn-success",
+                            index71: "btn-success",
+                            index81: "btn-success",
+                            nextAction: "No Pending Action",
+                            verify: "true",
+                            approve: "true",
+                            upload: "true",
+                            view: "true"
+                        });
+                        break;
+
+                    default:
+                        this.setState({
+                            index51: "btn-default",
+                            index61: "btn-default",
+                            index71: "btn-default",
+                            index81: "btn-default",
+                            verify: "true",
+                            approve: "true",
+                            upload: "true",
+                            view: "true"
+                        })
+                }
             }
         }, 500);
 

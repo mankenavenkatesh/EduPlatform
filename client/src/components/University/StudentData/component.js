@@ -227,7 +227,7 @@ class StudentData extends Component {
 
                                     className="btn btn-primary"
                                     onClick={this.handleVerify}
-                                    {...this.props.verify}
+                                    disabled={this.props.verify}
                                 >
                                     Verify
                                  </button>
@@ -236,7 +236,7 @@ class StudentData extends Component {
 
                                     className="btn btn-success"
                                     onClick={this.handleApprove}
-                                    {...this.props.approve}
+                                    disabled={this.props.approve}
                                 >
                                     Approve
                                 </button>

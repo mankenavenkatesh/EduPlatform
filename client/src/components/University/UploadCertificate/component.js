@@ -122,11 +122,11 @@ class UploadCertificate extends Component {
                     <div className="col-sm-4">
                         <input type="file" onChange={this.captureFile} />
                         <br />
-                        <button onClick={this.issueCertificate} className="btn btn-primary" {...this.props.upload}> Upload Certificate</button>
+                        <button onClick={this.issueCertificate} className="btn btn-primary" disabled={this.props.upload}> Upload Certificate</button>
                         &nbsp; &nbsp;
-                        <button onClick={this.addCertificate} className="btn btn-primary" {...this.props.view}> Add Certificate </button>
+                        <button onClick={this.addCertificate} className="btn btn-primary"> Add Certificate </button>
                         &nbsp; &nbsp;
-                        <button className="btn btn-primary" {...this.props.view} onClick={this.getHash} data-toggle="modal" data-target="#myModal" > View </button>
+                        <button className="btn btn-primary" onClick={this.getHash} data-toggle="modal" data-target="#myModal" > View </button>
 
 
                         <div class="modal fade" id="myModal" role="dialog">

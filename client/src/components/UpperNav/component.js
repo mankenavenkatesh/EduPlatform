@@ -79,7 +79,7 @@ class upperNav extends Component {
     })
     localStorage.removeItem('token');
     localStorage.removeItem('role');
-    window.location.pathname = '/home';
+    window.location.pathname = '/student';
   }
 
 

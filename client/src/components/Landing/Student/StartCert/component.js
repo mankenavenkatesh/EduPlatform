@@ -139,14 +139,14 @@ class StartCert extends Component {
     return (
       <div className='modals-group'>
         <div className="modal-1">
-          <button type="button" className="btn btn-info btn-lg" {...this.props.acceptReg}
+          <button type="button" className="btn btn-info btn-lg" disabled={this.props.acceptReg}
 
             onClick={this.acceptRegsitration}>Accept Registration</button>
           &nbsp; &nbsp;
           &nbsp; &nbsp;
-          <button type="button"  {...this.props.startCert} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Start Certification Request</button>
+          <button type="button" disabled={this.props.startCert} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Start Certification Request</button>
           &nbsp; &nbsp;
-          <button type="button" {...this.props.acceptCert} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Accept Certification</button>
+          <button type="button" disabled={this.props.acceptCert} className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Accept Certification</button>
           <div className="modal fade" id="myModal1" role="dialog">
             <div className="modal-dialog">
               <div className="modal-content">

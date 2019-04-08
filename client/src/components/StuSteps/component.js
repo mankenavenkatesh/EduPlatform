@@ -96,76 +96,77 @@ class StuSteps extends Component {
                         this.setState({ astate: response });
                         //   console.log("Status is JJJJ ", this.state.astate);
                     });
-            }
-            let regStatus = this.state.astate;
 
-            switch (regStatus) {
+                let regStatus = this.state.astate;
 
-                case "RequestforRegistration":
-                    this.setState({
-                        index11: "btn-success",
-                        index21: "btn-primary",
-                        index31: "btn-default",
-                        index41: "btn-default",
-                        nextAction: "No Action Pending. University is verifying your profile",
-                        acceptReg: "disabled",
-                        startCert: "disabled",
-                        acceptCert: "disabled",
+                switch (regStatus) {
 
-                    });
-                    break;
+                    case "RequestforRegistration":
+                        this.setState({
+                            index11: "btn-success",
+                            index21: "btn-primary",
+                            index31: "btn-default",
+                            index41: "btn-default",
+                            nextAction: "No Action Pending. University is verifying your profile",
+                            acceptReg: "disabled",
+                            startCert: "disabled",
+                            acceptCert: "disabled",
 
-                case "VerifyStudentProfile":
-                    this.setState({
-                        index11: "btn-success",
-                        index21: "btn-success",
-                        index31: "btn-primary",
-                        index41: "btn-default",
-                        nextAction: "No Action Pending. University is yet to approve your profile",
-                        acceptReg: "disabled",
-                        startCert: "disabled",
-                        acceptCert: "disabled",
-                    });
-                    break;
+                        });
+                        break;
 
-                case "ApproveRegistration":
-                    this.setState({
-                        index11: "btn-success",
-                        index21: "btn-success",
-                        index31: "btn-success",
-                        index41: "btn-primary",
-                        nextAction: "Please accept the registration given by the University",
-                        acceptReg: "",
-                        startCert: "disabled",
-                        acceptCert: "disabled",
-                    });
-                    break;
+                    case "VerifyStudentProfile":
+                        this.setState({
+                            index11: "btn-success",
+                            index21: "btn-success",
+                            index31: "btn-primary",
+                            index41: "btn-default",
+                            nextAction: "No Action Pending. University is yet to approve your profile",
+                            acceptReg: "disabled",
+                            startCert: "disabled",
+                            acceptCert: "disabled",
+                        });
+                        break;
 
-                case "AcceptRegistration":
-                    this.setState({
-                        index11: "btn-success",
-                        index21: "btn-success",
-                        index31: "btn-success",
-                        index41: "btn-success",
-                        nextAction: "Please select the required certificate and submit the certification request",
-                        acceptReg: "disabled",
-                        startCert: "",
-                        acceptCert: "disabled",
-                    });
-                    break;
+                    case "ApproveRegistration":
+                        this.setState({
+                            index11: "btn-success",
+                            index21: "btn-success",
+                            index31: "btn-success",
+                            index41: "btn-primary",
+                            nextAction: "Please accept the registration given by the University",
+                            acceptReg: "",
+                            startCert: "disabled",
+                            acceptCert: "disabled",
+                        });
+                        break;
 
-                default:
-                    this.setState({
-                        index11: "btn-default",
-                        index21: "btn-default",
-                        index31: "btn-default",
-                        index41: "btn-default",
-                        nextAction: "Please fill the form to register yourself to the University",
-                        verify: "disabled",
-                        approve: "disabled",
-                        upload: "disabled",
-                        view: "disabled"
-                    })
+                    case "AcceptRegistration":
+                        this.setState({
+                            index11: "btn-success",
+                            index21: "btn-success",
+                            index31: "btn-success",
+                            index41: "btn-success",
+                            nextAction: "Please select the required certificate and submit the certification request",
+                            acceptReg: "disabled",
+                            startCert: "",
+                            acceptCert: "disabled",
+                        });
+                        break;
+
+                    default:
+                        this.setState({
+                            index11: "btn-default",
+                            index21: "btn-default",
+                            index31: "btn-default",
+                            index41: "btn-default",
+                            nextAction: "Please fill the form to register yourself to the University",
+                            verify: "disabled",
+                            approve: "disabled",
+                            upload: "disabled",
+                            view: "disabled"
+                        })
+                }
             }
 
             if (this.state.studentAddress != null && this.state.collegeAddress != null && this.state.astate == "AcceptRegistration") {
@@ -177,75 +178,76 @@ class StuSteps extends Component {
                     .call().then((response) => {
                         this.setState({ bstate: response });
                     });
-            }
 
-            let certStatus = this.state.bstate;
-            switch (certStatus) {
 
-                case "AcceptingCertificateRequest":
-                    this.setState({
-                        index51: "btn-success",
-                        index61: "btn-primary",
-                        index71: "btn-default",
-                        index81: "btn-default",
-                        nextAction: "Please select the required certificate and submit the certification request",
-                        acceptReg: "disabled",
-                        startCert: "disabled",
-                        acceptCert: "disabled",
+                let certStatus = this.state.bstate;
+                switch (certStatus) {
 
-                    });
-                    break;
+                    case "AcceptingCertificateRequest":
+                        this.setState({
+                            index51: "btn-success",
+                            index61: "btn-primary",
+                            index71: "btn-default",
+                            index81: "btn-default",
+                            nextAction: "Please select the required certificate and submit the certification request",
+                            acceptReg: "",
+                            startCert: "dis",
+                            acceptCert: "disabled",
 
-                case "RequestCertificate":
-                    this.setState({
-                        index51: "btn-success",
-                        index61: "btn-success",
-                        index71: "btn-primary",
-                        index81: "btn-default",
-                        nextAction: "No Pending Action. University is issuing you a ceritificate",
-                        acceptReg: "disabled",
-                        startCert: "disabled",
-                        acceptCert: "disabled",
-                    });
-                    break;
+                        });
+                        break;
 
-                case "IssueCertificate":
-                    this.setState({
-                        index51: "btn-success",
-                        index61: "btn-success",
-                        index71: "btn-success",
-                        index81: "btn-primary",
-                        nextAction: "Please view and accept your certificate",
-                        acceptReg: "disabled",
-                        startCert: "disabled",
-                        acceptCert: "",
-                    });
-                    break;
+                    case "RequestCertificate":
+                        this.setState({
+                            index51: "btn-success",
+                            index61: "btn-success",
+                            index71: "btn-primary",
+                            index81: "btn-default",
+                            nextAction: "No Pending Action. University is issuing you a ceritificate",
+                            acceptReg: "disabled",
+                            startCert: "disabled",
+                            acceptCert: "disabled",
+                        });
+                        break;
 
-                case "acceptCertificate":
-                    this.setState({
-                        index51: "btn-success",
-                        index61: "btn-success",
-                        index71: "btn-success",
-                        index81: "btn-success",
-                        nextAction: "No Pending Action",
-                        acceptReg: "disabled",
-                        startCert: "disabled",
-                        acceptCert: "",
-                    });
-                    break;
+                    case "IssueCertificate":
+                        this.setState({
+                            index51: "btn-success",
+                            index61: "btn-success",
+                            index71: "btn-success",
+                            index81: "btn-primary",
+                            nextAction: "Please view and accept your certificate",
+                            acceptReg: "disabled",
+                            startCert: "disabled",
+                            acceptCert: "",
+                        });
+                        break;
 
-                default:
-                    this.setState({
-                        index51: "btn-default",
-                        index61: "btn-default",
-                        index71: "btn-default",
-                        index81: "btn-default",
-                        nextAction: "Please fill the form to register yourself to the University",
-                        acceptReg: "disabled",
-                        startCert: "disabled",
-                        acceptCert: "disabled",
-                    })
+                    case "acceptCertificate":
+                        this.setState({
+                            index51: "btn-success",
+                            index61: "btn-success",
+                            index71: "btn-success",
+                            index81: "btn-success",
+                            nextAction: "No Pending Action",
+                            acceptReg: "disabled",
+                            startCert: "disabled",
+                            acceptCert: "",
+                        });
+                        break;
+
+                    default:
+                        this.setState({
+                            index51: "btn-default",
+                            index61: "btn-default",
+                            index71: "btn-default",
+                            index81: "btn-default",
+                            nextAction: "Please select the required certificate and submit the certification request ",
+                            acceptReg: "disabled",
+                            startCert: "",
+                            acceptCert: "disabled",
+                        })
+                }
             }
         }, 500);
 
